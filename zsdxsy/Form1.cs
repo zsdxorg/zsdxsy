@@ -18,5 +18,26 @@ namespace zsdxsy
         {
             InitializeComponent();
         }
+        
+        private void btnKuai_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            MessageBox.Show(btn.Tag.ToString());
+        }
+
+        private void btnDinnerType_Click(object sender, EventArgs e) {
+            Button btnDinnerType = (Button)sender;
+            string dinnerType = btnDinnerType.Tag.ToString();
+            
+            //根据餐类生成不对应的餐标数据
+            MessageBox.Show(dinnerType);
+        }
+
+        /// <summary>
+        /// 根据选择的餐类，动态生成相应的可点餐
+        /// </summary>
+        /// <param name="dinnerType"></param>
+        private void createDinnerInfo(string dinnerType) {
+        }
     }
 }
