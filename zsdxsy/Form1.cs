@@ -29,7 +29,7 @@ namespace zsdxsy
             Button btnDinnerType = (Button)sender;
             string dinnerType = btnDinnerType.Tag.ToString();
             
-            //根据餐类生成不对应的餐标数据
+            //根据餐类生成对应的餐标数据
             MessageBox.Show(dinnerType);
         }
 
@@ -38,6 +38,11 @@ namespace zsdxsy
         /// </summary>
         /// <param name="dinnerType"></param>
         private void createDinnerInfo(string dinnerType) {
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
