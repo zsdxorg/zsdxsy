@@ -51,15 +51,15 @@ namespace zsdxsy
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<CashDishes> listDishes = DataHelper.getCashDishes();
-            createDishes(listDishes);
+        //    List<CashDishes> listDishes = DataHelper.getCashDishes();
+        //    createDishes(listDishes);
 
-            //加载快餐的数据
-            List<CashDinneritem> listMealItems = DataHelper.getCashDinnerItmes(DateTime.Now);
-            crearteMealType(listMealItems);
+        //    //加载快餐的数据
+        //    List<CashDinneritem> listMealItems = DataHelper.getCashDinnerItmes(DateTime.Now);
+        //    crearteMealType(listMealItems);
 
             //默认消费类型
-            lblConsumeType.Text = "消费类型：" + EnumEatType.普通 + EnumDinnerType.快餐;
+            //lblConsumeType.Text = "消费类型：" + EnumEatType.普通 + EnumDinnerType.快餐;
 
             //加载菜品数据
         }
@@ -76,8 +76,8 @@ namespace zsdxsy
             {
                 case 0:
                     dinnerType = "1";
-                    List<CashDinneritem> listMealItems = DataHelper.getCashDinnerItmes(DateTime.Now);
-                    crearteMealType(listMealItems);
+                    //List<CashDinneritem> listMealItems = DataHelper.getCashDinnerItmes(DateTime.Now);
+                    //crearteMealType(listMealItems);
                     break;
                 case 1:
                     //MessageBox.Show("点餐");

@@ -30,16 +30,16 @@ namespace zsdxsy.helper
         /// </summary>
         /// <param name="dinnerTime"></param>
         /// <returns></returns>
-        public static List<CashDinneritem> getCashDinnerItmes(DateTime dinnerTime)
+        public static List<ValueEntity> getCashDinnerItmes(DateTime dinnerTime)
         {
             //先做点模拟数据
-            CashDinneritem mealItem = null;
+            ValueEntity mealItem = null;
             int beginPrice = 10;
-            List<CashDinneritem> list = new List<CashDinneritem>();
-            for (int i = 0; i < 3; i++) {
-                mealItem = new CashDinneritem();
-                mealItem.mealName = beginPrice.ToString() + "元快餐";
-                mealItem.mealPrice = beginPrice;
+            List<ValueEntity> list = new List<ValueEntity>();
+            for (int i = 0; i < 6; i++) {
+                mealItem = new ValueEntity();
+                mealItem.valueName = beginPrice.ToString() + "元快餐";
+                mealItem.valuePrice = beginPrice;
                 list.Add(mealItem);
                 beginPrice += 10;
             }

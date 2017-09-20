@@ -19,7 +19,7 @@ namespace zsdxsy
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             LogHelper.SetConfig();
-            Application.Run(new frmMain());
+            Application.Run(new frmCash());
         }
     }
 }

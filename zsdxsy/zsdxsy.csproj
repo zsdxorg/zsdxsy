@@ -56,6 +56,19 @@
     <Compile Include="entity\CashDinneritem.cs" />
     <Compile Include="entity\CashDishes.cs" />
     <Compile Include="entity\ConsumeDetail.cs" />
+    <Compile Include="entity\ValueEntity.cs" />
+    <Compile Include="FormCash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCash.Designer.cs">
+      <DependentUpon>FormCash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfo.Designer.cs">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +79,12 @@
     <Compile Include="helper\EnumHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCash.resx">
+      <DependentUpon>FormCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfo.resx">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +121,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\blue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Snap13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-确认.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
