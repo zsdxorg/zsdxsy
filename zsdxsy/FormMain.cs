@@ -170,7 +170,6 @@ namespace zsdxsy
                 btn.Size = new Size(160, 45);
                 btn.Click += new EventHandler(btnMeal_Click);
                 btn.Location = new Point(25, 55 + 70 * i);
-                //gboxMealItems.Controls.Add(btn);
                 tpHun.Controls.Add(btn);
                 i++;
             }

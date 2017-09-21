@@ -50,48 +50,48 @@ namespace zsdxsy.helper
         /// 获取点餐或围餐的菜品
         /// </summary>
         /// <returns></returns>
-        public static List<CashDishes> getCashDishes() {
+        public static List<ValueEntity> getCashDishes() {
 
             //模拟数据
-            CashDishes caiping = null;
+            ValueEntity caiping = null;
 
-            List<CashDishes> list = new List<CashDishes>();
-            caiping = new CashDishes();
-            caiping.dishesType = 1;
-            caiping.dishesName = "红烧肉";
-            caiping.dishesCode = 1;
-            caiping.dishesPrice = 30;
+            List<ValueEntity> list = new List<ValueEntity>();
+            caiping = new ValueEntity();
+            //caiping.dishesType = 1;
+            caiping.valueName = "红烧肉";
+            //caiping.dishesCode = 1;
+            caiping.valuePrice = 30;
             list.Add(caiping);
 
-            caiping = new CashDishes();
-            caiping.dishesType = 1;
-            caiping.dishesName = "水煮鱼片";
-            caiping.dishesCode = 2;
-            caiping.dishesPrice = 30;
-            list.Add(caiping);
-
-
-            caiping = new CashDishes();
-            caiping.dishesType = 1;
-            caiping.dishesName = "水煮牛肉";
-            caiping.dishesCode = 2;
-            caiping.dishesPrice = 30;
+            caiping = new ValueEntity();
+            //caiping.dishesType = 1;
+            caiping.valueName = "水煮鱼片";
+            //caiping.dishesCode = 2;
+            caiping.valuePrice = 30;
             list.Add(caiping);
 
 
-            caiping = new CashDishes();
-            caiping.dishesType = 1;
-            caiping.dishesName = "木须肉";
-            caiping.dishesCode = 2;
-            caiping.dishesPrice = 30;
+            caiping = new ValueEntity();
+            //caiping.dishesType = 1;
+            caiping.valueName = "水煮牛肉";
+            //caiping.dishesCode = 2;
+            caiping.valuePrice = 30;
             list.Add(caiping);
 
 
-            caiping = new CashDishes();
-            caiping.dishesType = 1;
-            caiping.dishesName = "永州血鸭";
-            caiping.dishesCode = 2;
-            caiping.dishesPrice = 30;
+            caiping = new ValueEntity();
+            //caiping.dishesType = 1;
+            caiping.valueName = "木须肉";
+            //caiping.dishesCode = 2;
+            caiping.valuePrice = 30;
+            list.Add(caiping);
+
+
+            caiping = new ValueEntity();
+            //caiping.dishesType = 1;
+            caiping.valueName = "永州血鸭";
+            //caiping.dishesCode = 2;
+            caiping.valuePrice = 30;
             list.Add(caiping);
 
             return list;
