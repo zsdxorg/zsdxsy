@@ -39,6 +39,10 @@
     <Reference Include="IrisSkin4">
       <HintPath>..\lib\IrisSkin4.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\framwork\BJP.Framework\lib\NHProf\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -55,7 +59,9 @@
   <ItemGroup>
     <Compile Include="entity\CashDinneritem.cs" />
     <Compile Include="entity\CashDishes.cs" />
+    <Compile Include="entity\ConsumeBill.cs" />
     <Compile Include="entity\ConsumeDetail.cs" />
+    <Compile Include="entity\ExtResult.cs" />
     <Compile Include="entity\ValueEntity.cs" />
     <Compile Include="FormCash.cs">
       <SubType>Form</SubType>
@@ -77,6 +83,7 @@
     </Compile>
     <Compile Include="helper\DataHelper.cs" />
     <Compile Include="helper\EnumHelper.cs" />
+    <Compile Include="helper\HttpHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCash.resx">

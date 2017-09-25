@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BJP.Framework.Log;
+using BJP.Framework.Utility;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -172,7 +175,7 @@ namespace zsdxsy
                     eatType = 1;
                     dinnerType = 2;
                     listMealItems = DataHelper.getCashDishes();
-                    createSelectButton(listMealItems, plCaiping);
+                    createSelectButton(listMealItems, plDianHun);
                     break;
                 case 3:
                     lblConsumeType.Text = "消费类型：" + EnumDinnerType.围餐;
@@ -303,7 +306,8 @@ namespace zsdxsy
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
-
+            CashClearing();
+            delItemControlFromItemPanel();
         }
 
         /// <summary>
@@ -410,7 +414,9 @@ namespace zsdxsy
         /// </summary>
         private void printConsumeItems(string state)
         {
+            List<ConsumeDetail> billItems = new List<ConsumeDetail>();
             DateTime dt = DateTime.Now;
+            string outData = string.Empty;
             string needPay = txtNeedPay.Text;
             string realPay = txtRealPay.Text;
             string chagePay = txtChange.Text;
@@ -418,8 +424,9 @@ namespace zsdxsy
             string printDir = Application.StartupPath + @"\items\";
             string info = string.Empty;
             string consumer = "个人";
+            string opertioner = "aaaaa";
             info = "=====================================================================\r\n";
-            info += "交易时间：" + DateTime.Now + "\r\n";
+            info += "交易时间：" + dt + "\r\n";
             info += "交易流水号：" + consumeSerial + "\r\n";
             info += lblConsumeType.Text + "\r\n";
             info += "消费者：" + consumer + "\r\n";
@@ -436,12 +443,13 @@ namespace zsdxsy
             foreach (ConsumeDetail cd in valueColl)
             {
                 info += cd.detailName + "            X" + cd.detailCount.ToString() + "        \r\n";
+                billItems.Add(cd);
             }
             info += "-----------------------------------\r\n";
             info += "             合计：" + needPay + "\r\n";
             info += "             实收：" + realPay + "\r\n";
             info += "             找零：" + chagePay + "\r\n";
-            info += "操 作 人：aaaaaa" + "\r\n";
+            info += "操 作 人：" + opertioner + "\r\n";
             info += "交易状态：" + state + "\r\n";
 
             if (false == System.IO.Directory.Exists(printDir))
@@ -452,6 +460,37 @@ namespace zsdxsy
             StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.Default);
             sw.WriteLine(info);
             sw.Close();
+
+            //组装数据并发送到后台
+            ConsumeBill bill = new ConsumeBill();
+            bill.testDate = dt.ToString("yyyy-MM-dd HH:mm:ss");
+            bill.consumeSerial = consumeSerial;
+            bill.consumeType = lblConsumeType.Text.Split('：')[1];
+            bill.consumeUser = consumer;
+            bill.receptionDept = txtReception.Text;
+            bill.visitorUnit = txtVisitor.Text;
+            bill.consumeTotal = Convert.ToDecimal(needPay);
+            bill.realPay = Convert.ToDecimal(realPay);
+            bill.changePay = Convert.ToDecimal(chagePay);
+            bill.opertioner = opertioner;
+            bill.consumeState = state;
+
+            string consumeBill = JsonBuilder.toJson(bill);
+            string billDetail = JsonBuilder.toJson(billItems);
+            string url = "http://localhost:9300/app/cashReset/doAddConsumeBill?consumeBill=" + consumeBill + "&billDetail=" + billDetail;
+            bool re = HttpHelper.PostToREST(out outData, url, "");
+            if (re)
+            {
+                //outData = "{\"success\":true,\"jsonData\":\"操作成功\"}";
+                ExtResult er = JsonBuilder.fromJson<ExtResult>(outData);
+                if (er.success)
+                    LogHelper.Info("流水号为" + consumeSerial + "的单据入库成功");
+                else
+                    LogHelper.Error("流水号为" + consumeSerial + "的单据入库失败,将在本地记录失败原因:" + er.jsonData);
+            }
+            else {
+                LogHelper.Error("流水号为" + consumeSerial + "的单据入库失败,将在本地记录。失败原因:网络故障");
+            }
         }
 
         /// <summary>
