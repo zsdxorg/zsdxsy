@@ -148,7 +148,7 @@
             this.btnChangeCount.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
             this.btnChangeCount.TabIndex = 9;
             this.btnChangeCount.Text = "切换账号";
-            this.btnChangeCount.Click += new System.EventHandler(this.btnChangeCount_Click);
+            this.btnChangeCount.Click += new System.EventHandler(this.btnChangeUser_Click);
             // 
             // btnExit
             // 

@@ -58,7 +58,17 @@ namespace zsdxsy
         /// 当前操作员
         /// </summary>
         string opertioner = string.Empty;
+        /// <summary>
+        /// 快餐数据
+        /// </summary>
+        List<ValueEntity> listZhao = null;
+        List<ValueEntity> listWu = null;
+        List<ValueEntity> listWan = null;
+        List<ValueEntity> listYe = null;
 
+        /// <summary>
+        /// 点餐与围餐的菜品
+        /// </summary>
         List<ValueEntity> listMealItems = null;
         List<ValueEntity> listHun = null;
         List<ValueEntity> listShu = null;
@@ -66,7 +76,9 @@ namespace zsdxsy
         List<ValueEntity> listZhu = null;
         List<ValueEntity> listJiu = null;
         List<ValueEntity> listOther = null;
+
         bool blGetCashDishes = false;
+        bool blGetMeal = false;
         public frmCash()
         {
             InitializeComponent();
@@ -129,11 +141,14 @@ namespace zsdxsy
                     }
                 }
 
-                listMealItems = DataHelper.getCashDinnerItmes(DateTime.Now);
-                createSelectButton(listMealItems, plSelectItems);
+                blGetMeal = DataHelper.getCashMealList(out listZhao, out listWu, out listWan, out listYe, serviceUrl);
+                if (blGetMeal)
+                    createCashMealButton(listZhao, listWu, listWan, listYe);
             }
-            else {
-                if (opertioner == "") {
+            else
+            {
+                if (opertioner == "")
+                {
                     this.Close();
                     Application.Exit();
                 }
@@ -391,16 +406,20 @@ namespace zsdxsy
                 CashClearing();
             }
         }
-        private void btnChangeCount_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 切换收银员账号
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChangeUser_Click(object sender, EventArgs e)
         {
-            //frmLogin loginForm = new frmLogin();
-            //if (loginForm.ShowDialog() == DialogResult.OK)
-            //{
-            //    this.Text = loginForm.userXm;
-            //}
-            //frmCash_Load(new frmCash(),);
             this.frmCash_Load(new frmCash(), e);
         }
+        /// <summary>
+        /// 退出收银系统
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -408,6 +427,63 @@ namespace zsdxsy
         }
 
         #region 非事件处理函数
+        /// <summary>
+        /// 根据时间生成可选的快餐按钮
+        /// </summary>
+        /// <param name="listZhao"></param>
+        /// <param name="listWu"></param>
+        /// <param name="listWan"></param>
+        /// <param name="listYe"></param>
+        private void createCashMealButton(List<ValueEntity> listZhao, List<ValueEntity> listWu, List<ValueEntity> listWan, List<ValueEntity> listYe)
+        {
+            string justDate = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            DateTime justTime = DateTime.Now;
+
+            DateTime endZhao = Convert.ToDateTime(justDate + " 09:00");
+            DateTime endWu = Convert.ToDateTime(justDate + " 13:00");
+            DateTime endWan = Convert.ToDateTime(justDate + " 19:00");
+            DateTime endYe = Convert.ToDateTime(justDate + " 22:00");
+            if (justTime < endZhao)
+            {
+                if (listZhao != null && listZhao.Count > 0)
+                {
+                    createSelectButton(listZhao, plSelectItems);
+                }
+            }
+            else
+            {
+                if (justTime < endWu)
+                {
+                    if (listWu != null && listWu.Count > 0)
+                    {
+                        createSelectButton(listWu, plSelectItems);
+                    }
+                }
+                else
+                {
+                    if (justTime < endWan)
+                    {
+                        if (listWan != null && listWan.Count > 0)
+                        {
+                            createSelectButton(listWan, plSelectItems);
+                        }
+                    }
+                    else
+                    {
+                        if (listYe != null && listYe.Count > 0)
+                        {
+                            createSelectButton(listYe, plSelectItems);
+                        }
+                    }
+                }
+
+            }
+        }
+        /// <summary>
+        /// 检查是否有未结算的小票
+        /// </summary>
+        /// <param name="selectIndex"></param>
+        /// <returns></returns>
         private bool CheckNoClearingBill(int selectIndex)
         {
             int itemsCount = dicConsumeItems.Count;    //已选择的消费项
@@ -440,7 +516,12 @@ namespace zsdxsy
             }
         }
 
-        private string creatBillSerial() {
+        /// <summary>
+        /// 生成票据流水号
+        /// </summary>
+        /// <returns></returns>
+        private string creatBillSerial()
+        {
             string temp1 = DateTime.Now.ToString("yyyyMMddHHmmss");
             string temp2 = Utility.CreateGuidLeft(4, billCount.ToString(), '0', false);
             StringBuilder sb = new StringBuilder(temp1);
@@ -578,7 +659,7 @@ namespace zsdxsy
             string printDir = Application.StartupPath + @"\items\";
             string info = string.Empty;
             string consumer = "个人";
-            
+
             info = "=====================================================================\r\n";
             info += "交易时间：" + dt + "\r\n";
             info += "交易流水号：" + consumeSerial + "\r\n";
@@ -702,7 +783,8 @@ namespace zsdxsy
                         }
                         break;
                     case 3:
-                        if (plWeiHun.Controls.ContainsKey("btn_" + cd.detailName)) {
+                        if (plWeiHun.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
                             btnMeal = (DevComponents.DotNetBar.ButtonX)plWeiHun.Controls.Find("btn_" + cd.detailName, false)[0];
                             break;
                         }
@@ -733,7 +815,7 @@ namespace zsdxsy
                         }
                         break;
                 }
-                 btnMeal.Enabled = true;
+                btnMeal.Enabled = true;
             }
             dicConsumeItems.Clear();
             txtNeedPay.Text = "0";
