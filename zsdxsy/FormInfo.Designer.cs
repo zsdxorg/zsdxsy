@@ -36,7 +36,6 @@
             // 
             // lblInfo
             // 
-            this.lblInfo.AutoSize = true;
             this.lblInfo.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
             this.lblInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             // 
@@ -44,11 +43,12 @@
             // 
             this.lblInfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblInfo.Font = new System.Drawing.Font("宋体", 21.75F);
-            this.lblInfo.Location = new System.Drawing.Point(132, 119);
+            this.lblInfo.Location = new System.Drawing.Point(39, 33);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(117, 37);
+            this.lblInfo.Size = new System.Drawing.Size(670, 236);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "labelX1";
+            this.lblInfo.WordWrap = true;
             // 
             // btnOk
             // 
@@ -57,7 +57,7 @@
             this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOk.Font = new System.Drawing.Font("宋体", 21.75F);
             this.btnOk.Image = global::zsdxsy.Properties.Resources.Apply;
-            this.btnOk.Location = new System.Drawing.Point(160, 331);
+            this.btnOk.Location = new System.Drawing.Point(249, 331);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(149, 69);
             this.btnOk.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
@@ -72,7 +72,7 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Font = new System.Drawing.Font("宋体", 21.75F);
             this.btnCancel.Image = global::zsdxsy.Properties.Resources.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(368, 331);
+            this.btnCancel.Location = new System.Drawing.Point(454, 331);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(149, 69);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
@@ -90,6 +90,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblInfo);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -97,7 +98,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "信息提示";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

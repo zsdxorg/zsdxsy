@@ -36,6 +36,7 @@
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOk = new DevComponents.DotNetBar.ButtonX();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
+            this.lblInfo = new DevComponents.DotNetBar.LabelX();
             this.SuspendLayout();
             // 
             // lblUserName
@@ -69,6 +70,7 @@
             this.txtUserName.PreventEnterBeep = true;
             this.txtUserName.Size = new System.Drawing.Size(258, 41);
             this.txtUserName.TabIndex = 1;
+            this.txtUserName.Text = "13824766061";
             // 
             // txtPwd
             // 
@@ -86,6 +88,7 @@
             this.txtPwd.PreventEnterBeep = true;
             this.txtPwd.Size = new System.Drawing.Size(258, 41);
             this.txtPwd.TabIndex = 3;
+            this.txtPwd.Text = "123456";
             this.txtPwd.UseSystemPasswordChar = true;
             // 
             // labelX1
@@ -142,6 +145,23 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
+            // lblInfo
+            // 
+            this.lblInfo.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
+            this.lblInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            // 
+            // 
+            // 
+            this.lblInfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lblInfo.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblInfo.Location = new System.Drawing.Point(110, 31);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(548, 153);
+            this.lblInfo.TabIndex = 10;
+            this.lblInfo.Text = "欢迎使用中山市委党校总务收银系统";
+            this.lblInfo.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.lblInfo.WordWrap = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -149,18 +169,21 @@
             this.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(767, 436);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.lblUserName);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "中共中山市委党校收银系统-登录";
+            this.Text = "中山市委党校总务收银系统-登录";
             this.ResumeLayout(false);
 
         }
@@ -174,5 +197,6 @@
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnOk;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
+        private DevComponents.DotNetBar.LabelX lblInfo;
     }
 }

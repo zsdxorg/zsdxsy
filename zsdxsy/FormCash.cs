@@ -28,6 +28,11 @@ namespace zsdxsy
         /// 访问手台服务器地址
         /// </summary>
         string serviceUrl = ConfigurationManager.AppSettings["serviceUrl"].ToString();
+
+        /// <summary>
+        /// 当前收银机的设备编号
+        /// </summary>
+        string deviceNum = ConfigurationManager.AppSettings["deviceNum"].ToString();
         /// <summary>
         /// 收银类型 1-快餐 2-点餐 3-接待围餐
         /// 默认为1
@@ -40,10 +45,18 @@ namespace zsdxsy
         private int eatType = 1;
 
         /// <summary>
+        /// 本收银机启动时的起始收银序号
+        /// </summary>
+        int billCount = 1;
+
+        /// <summary>
         /// 已选择的消费明细项
         /// </summary>
         private Dictionary<string, ConsumeDetail> dicConsumeItems = new Dictionary<string, ConsumeDetail>();
 
+        /// <summary>
+        /// 当前操作员
+        /// </summary>
         string opertioner = string.Empty;
 
         List<ValueEntity> listMealItems = null;
@@ -73,7 +86,7 @@ namespace zsdxsy
             frmLogin loginForm = new frmLogin();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                this.Text = "中共中山市委党校收银系统-操作员:" + loginForm.userXm;
+                this.Text = "中山市委党校总务收银系统-操作员:" + loginForm.userXm;
                 opertioner = loginForm.userXm;
 
                 lblConsumeType.Text = "消费类型：" + EnumEatType.普通 + EnumDinnerType.快餐;
@@ -427,6 +440,15 @@ namespace zsdxsy
             }
         }
 
+        private string creatBillSerial() {
+            string temp1 = DateTime.Now.ToString("yyyyMMddHHmmss");
+            string temp2 = Utility.CreateGuidLeft(4, billCount.ToString(), '0', false);
+            StringBuilder sb = new StringBuilder(temp1);
+            sb.Append(deviceNum);
+            sb.Append(temp2);
+
+            return sb.ToString();
+        }
         /// <summary>
         /// 动态生成可选择的快餐或菜品
         /// </summary>
@@ -552,7 +574,7 @@ namespace zsdxsy
             string needPay = txtNeedPay.Text;
             string realPay = txtRealPay.Text;
             string chagePay = txtChange.Text;
-            string consumeSerial = dt.ToString("yyyyMMddHHmmss");
+            string consumeSerial = creatBillSerial();
             string printDir = Application.StartupPath + @"\items\";
             string info = string.Empty;
             string consumer = "个人";
@@ -617,6 +639,8 @@ namespace zsdxsy
             string billDetail = JsonBuilder.toJson(billItems);
             outData = DataHelper.postConsumeBill(serviceUrl, consumeBill, billDetail);
             LogHelper.Info("流水号为" + consumeSerial + outData);
+
+            billCount++;
         }
 
         /// <summary>

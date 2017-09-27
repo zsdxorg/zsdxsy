@@ -16,7 +16,7 @@ namespace zsdxsy
         {
             InitializeComponent();
 
-            this.Text = title;
+            this.Text = "中山市委党校总务收银系统-" + title;
             lblInfo.Text = info;
             if (infotype == "CANCEL")
                 btnOk.Visible = false;
