@@ -23,6 +23,11 @@ namespace zsdxsy
         /// 皮肤文件定义
         /// </summary>
         string skinFileName = ConfigurationManager.AppSettings["skinFileName"].ToString();
+
+        /// <summary>
+        /// 访问手台服务器地址
+        /// </summary>
+        string serviceUrl = ConfigurationManager.AppSettings["serviceUrl"].ToString();
         /// <summary>
         /// 收银类型 1-快餐 2-点餐 3-接待围餐
         /// 默认为1
@@ -39,6 +44,16 @@ namespace zsdxsy
         /// </summary>
         private Dictionary<string, ConsumeDetail> dicConsumeItems = new Dictionary<string, ConsumeDetail>();
 
+        string opertioner = string.Empty;
+
+        List<ValueEntity> listMealItems = null;
+        List<ValueEntity> listHun = null;
+        List<ValueEntity> listShu = null;
+        List<ValueEntity> listTang = null;
+        List<ValueEntity> listZhu = null;
+        List<ValueEntity> listJiu = null;
+        List<ValueEntity> listOther = null;
+        bool blGetCashDishes = false;
         public frmCash()
         {
             InitializeComponent();
@@ -55,7 +70,61 @@ namespace zsdxsy
 
         private void frmCash_Load(object sender, EventArgs e)
         {
-            lblConsumeType.Text = "消费类型：" + EnumEatType.普通 + EnumDinnerType.快餐;
+            frmLogin loginForm = new frmLogin();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                this.Text = "中共中山市委党校收银系统-操作员:" + loginForm.userXm;
+                opertioner = loginForm.userXm;
+
+                lblConsumeType.Text = "消费类型：" + EnumEatType.普通 + EnumDinnerType.快餐;
+                blGetCashDishes = DataHelper.getCashDishes(out listHun, out listShu, out listTang, out listZhu, out listJiu, out listOther, serviceUrl);
+                if (blGetCashDishes)
+                {
+                    if (listShu != null && listShu.Count > 0)
+                    {
+                        createSelectButton(listShu, plDianShu);
+                        createSelectButton(listShu, plWeiShu);
+                    }
+
+                    if (listTang != null && listTang.Count > 0)
+                    {
+                        createSelectButton(listTang, plDianTang);
+                        createSelectButton(listTang, plWeiTang);
+                    }
+
+                    if (listZhu != null && listZhu.Count > 0)
+                    {
+                        createSelectButton(listZhu, plDianZhu);
+                        createSelectButton(listZhu, plWeiZhu);
+                    }
+
+                    if (listJiu != null && listJiu.Count > 0)
+                    {
+                        createSelectButton(listJiu, plDianJiu);
+                        createSelectButton(listJiu, plWeiJiu);
+                    }
+
+                    if (listOther != null && listOther.Count > 0)
+                    {
+                        createSelectButton(listOther, plDianOther);
+                        createSelectButton(listOther, plWeiOther);
+                    }
+                    if (listHun != null && listHun.Count > 0)
+                    {
+                        createSelectButton(listHun, plDianHun);
+                        createSelectButton(listHun, plWeiHun);
+                    }
+                }
+
+                listMealItems = DataHelper.getCashDinnerItmes(DateTime.Now);
+                createSelectButton(listMealItems, plSelectItems);
+            }
+            else {
+                if (opertioner == "") {
+                    this.Close();
+                    Application.Exit();
+                }
+            }
         }
 
         /// <summary>
@@ -65,7 +134,8 @@ namespace zsdxsy
         /// <param name="e"></param>
         private void tbiKuai_Click(object sender, EventArgs e)
         {
-            tcDinnerType_TabIndexChanged(1);
+            if (CheckNoClearingBill(1))
+                tcDinnerType_TabIndexChanged(1);
         }
         /// <summary>
         /// 切换到点餐标签页
@@ -74,6 +144,7 @@ namespace zsdxsy
         /// <param name="e"></param>
         private void tbiDian_Click(object sender, EventArgs e)
         {
+            // if (CheckNoClearingBill(2))
             tcDinnerType_TabIndexChanged(2);
         }
 
@@ -84,6 +155,7 @@ namespace zsdxsy
         /// <param name="e"></param>
         private void tbiWei_Click(object sender, EventArgs e)
         {
+            //if (CheckNoClearingBill(3))
             tcDinnerType_TabIndexChanged(3);
         }
         /// <summary>
@@ -99,21 +171,21 @@ namespace zsdxsy
             string Info = string.Empty;
             string InfoType = string.Empty;
             //如果是切换前的类型已有消费明细，提示需要先结算
-            if (itemsCount > 0 && eatType != selectType)
-            {
-                Info = "您好：\n";
-                Info += "    还有未结算的消费，请先结算\n\n";
-                Info += "    按[确认]返回结算\n";
+            //if (itemsCount > 0 && eatType != selectType)
+            //{
+            //    Info = "您好：\n";
+            //    Info += "    还有未结算的消费，请先结算\n\n";
+            //    Info += "    按[确认]返回结算\n";
 
-                InfoType = "OK";
+            //    InfoType = "OK";
 
-                string Title = "未结算单提醒";
-                frmInfo frmInfo = new frmInfo(Info, Title, InfoType);
-                if (frmInfo.ShowDialog() == DialogResult.OK)
-                {
-                    return;
-                }
-            }
+            //    string Title = "未结算单提醒";
+            //    frmInfo frmInfo = new frmInfo(Info, Title, InfoType);
+            //    if (frmInfo.ShowDialog() == DialogResult.OK)
+            //    {
+            //        return;
+            //    }
+            //}
             //设置消费类型
             eatType = selectType;
             switch (selectType)
@@ -141,41 +213,19 @@ namespace zsdxsy
         /// <param name="e"></param>
         private void tcDinnerType_TabIndexChanged(int selectIndex)
         {
-            List<ValueEntity> listMealItems = null;
-            int itemsCount = dicConsumeItems.Count;    //已选择的消费项
-            string Info = string.Empty;
-            string InfoType = string.Empty;
-            //如果是切换前的类型已有消费明细，提示需要先结算
-            if (itemsCount > 0 && dinnerType != selectIndex)
-            {
-                Info = "您好：\n";
-                Info += "    还有未结算的消费，请先结算\n\n";
-                Info += "    按[确认]返回结算\n";
-
-                InfoType = "OK";
-
-                string Title = "未结算单提醒";
-                frmInfo frmInfo = new frmInfo(Info, Title, InfoType);
-                if (frmInfo.ShowDialog() == DialogResult.OK)
-                {
-                    return;
-                }
-            }
+            //if (CheckNoClearingBill(selectIndex))
+            //{//没有没有待结算的单，则显示对应餐类的可选项
             switch (selectIndex)
             {
                 case 1:
                     lblConsumeType.Text = "消费类型：" + EnumDinnerType.快餐;
                     dinnerType = 1;
                     eatType = 1;
-                    listMealItems = DataHelper.getCashDinnerItmes(DateTime.Now);
-                    createSelectButton(listMealItems, plSelectItems);
                     break;
                 case 2:
                     lblConsumeType.Text = "消费类型：" + EnumDinnerType.点餐;
                     eatType = 1;
                     dinnerType = 2;
-                    listMealItems = DataHelper.getCashDishes();
-                    createSelectButton(listMealItems, plDianHun);
                     break;
                 case 3:
                     lblConsumeType.Text = "消费类型：" + EnumDinnerType.围餐;
@@ -183,6 +233,10 @@ namespace zsdxsy
                     eatType = 1;
                     break;
             }
+            //}
+            //else {
+            //    plDianHun.Controls.Clear();
+            //}
         }
 
         /// <summary>
@@ -252,9 +306,10 @@ namespace zsdxsy
             //如果是快餐，自动计算总价
             if (dinnerType == 1)
             {
-                total = sumItemsTotal(total);
+                total = sumItemsTotal();
             }
             btn.Enabled = false;
+
         }
 
         /// <summary>
@@ -289,7 +344,7 @@ namespace zsdxsy
             //如果是快餐，自动计算总价
             if (dinnerType == 1)
             {
-                total = sumItemsTotal(total);
+                total = sumItemsTotal();
             }
 
         }
@@ -323,9 +378,54 @@ namespace zsdxsy
                 CashClearing();
             }
         }
-
+        private void btnChangeCount_Click(object sender, EventArgs e)
+        {
+            //frmLogin loginForm = new frmLogin();
+            //if (loginForm.ShowDialog() == DialogResult.OK)
+            //{
+            //    this.Text = loginForm.userXm;
+            //}
+            //frmCash_Load(new frmCash(),);
+            this.frmCash_Load(new frmCash(), e);
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
 
         #region 非事件处理函数
+        private bool CheckNoClearingBill(int selectIndex)
+        {
+            int itemsCount = dicConsumeItems.Count;    //已选择的消费项
+            string Info = string.Empty;
+            string InfoType = string.Empty;
+            //如果是切换前的类型已有消费明细，提示需要先结算
+            if (itemsCount > 0 && dinnerType != selectIndex)
+            {
+                Info = "您好：\n";
+                Info += "    还有未结算的消费，请先结算\n\n";
+                Info += "    按[确认]返回结算\n";
+
+                InfoType = "OK";
+
+                string Title = "未结算单提醒";
+                frmInfo frmInfo = new frmInfo(Info, Title, InfoType);
+                if (frmInfo.ShowDialog() == DialogResult.OK)
+                {
+                    txtRealPay.Focus();
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         /// <summary>
         /// 动态生成可选择的快餐或菜品
@@ -361,8 +461,9 @@ namespace zsdxsy
         /// </summary>
         /// <param name="total"></param>
         /// <returns></returns>
-        private decimal sumItemsTotal(decimal total)
+        private decimal sumItemsTotal()
         {
+            decimal total = 0;
             Dictionary<string, ConsumeDetail>.ValueCollection valueColl = dicConsumeItems.Values;
             foreach (ConsumeDetail cd in valueColl)
             {
@@ -377,12 +478,28 @@ namespace zsdxsy
         /// </summary>
         private void CashClearing()
         {
+            string info = string.Empty;
+            string InfoType = string.Empty;
+            string Title = "结算提醒";
+            frmInfo frmInfo = null;
             if (txtNeedPay.Text == "")
             {
-                MessageBox.Show("请输入应付金额");
-                return;
-            }
+                info = "您好：\n";
+                info += "    请输入应付金额\n\n";
 
+                InfoType = "OK";
+                frmInfo = new frmInfo(info, Title, InfoType);
+                if (frmInfo.ShowDialog() == DialogResult.OK)
+                {
+                    txtRealPay.Focus();
+                    return;
+                }
+            }
+            //如果是快餐，重新计算总额
+            if (dinnerType == 1)
+            {
+                txtNeedPay.Text = sumItemsTotal().ToString();
+            }
             if (txtRealPay.Text == "")
             {
                 txtRealPay.Text = "0";
@@ -391,13 +508,28 @@ namespace zsdxsy
             Decimal needPay = Convert.ToDecimal(txtNeedPay.Text);
             Decimal realPay = Convert.ToDecimal(txtRealPay.Text);
             Decimal payChange = realPay - needPay;
-
             //如果是接待快餐或接待围餐,不需要输入实付金额
-            // if(eatType)
-            if (payChange < 0)
+            if (dinnerType == 3 || eatType == 3)
             {
-                MessageBox.Show("实付金额不够，无法结算");
-                return;
+                payChange = 0;
+                realPay = 0;
+            }
+            else
+            {
+                if (payChange < 0)
+                {
+                    info = "您好：\n";
+                    info += "    实付金额不够，无法结算\n\n";
+
+                    InfoType = "OK";
+
+                    frmInfo = new frmInfo(info, Title, InfoType);
+                    if (frmInfo.ShowDialog() == DialogResult.OK)
+                    {
+                        txtRealPay.Focus();
+                        return;
+                    }
+                }
             }
             txtChange.Text = "-" + payChange.ToString();
 
@@ -424,17 +556,22 @@ namespace zsdxsy
             string printDir = Application.StartupPath + @"\items\";
             string info = string.Empty;
             string consumer = "个人";
-            string opertioner = "aaaaa";
+            
             info = "=====================================================================\r\n";
             info += "交易时间：" + dt + "\r\n";
             info += "交易流水号：" + consumeSerial + "\r\n";
             info += lblConsumeType.Text + "\r\n";
-            info += "消费者：" + consumer + "\r\n";
             //招待快餐和接待围餐要打印招待单位和来访单位
             if (eatType == 3 || dinnerType == 3)
             {
+                consumer = "单位";
+                info += "消费者：单位\r\n";
                 info += "接待部门：" + txtReception.Text + "\r\n";
                 info += "来访单位：" + txtVisitor.Text + "\r\n";
+            }
+            else
+            {
+                info += "消费者：个人\r\n";
             }
             info += "交易明细：\r\n";
             info += "-----------------------------------\r\n";
@@ -452,6 +589,7 @@ namespace zsdxsy
             info += "操 作 人：" + opertioner + "\r\n";
             info += "交易状态：" + state + "\r\n";
 
+            //写入交易票据文件
             if (false == System.IO.Directory.Exists(printDir))
             {
                 System.IO.Directory.CreateDirectory(printDir);
@@ -477,20 +615,8 @@ namespace zsdxsy
 
             string consumeBill = JsonBuilder.toJson(bill);
             string billDetail = JsonBuilder.toJson(billItems);
-            string url = "http://localhost:9300/app/cashReset/doAddConsumeBill?consumeBill=" + consumeBill + "&billDetail=" + billDetail;
-            bool re = HttpHelper.PostToREST(out outData, url, "");
-            if (re)
-            {
-                //outData = "{\"success\":true,\"jsonData\":\"操作成功\"}";
-                ExtResult er = JsonBuilder.fromJson<ExtResult>(outData);
-                if (er.success)
-                    LogHelper.Info("流水号为" + consumeSerial + "的单据入库成功");
-                else
-                    LogHelper.Error("流水号为" + consumeSerial + "的单据入库失败,将在本地记录失败原因:" + er.jsonData);
-            }
-            else {
-                LogHelper.Error("流水号为" + consumeSerial + "的单据入库失败,将在本地记录。失败原因:网络故障");
-            }
+            outData = DataHelper.postConsumeBill(serviceUrl, consumeBill, billDetail);
+            LogHelper.Info("流水号为" + consumeSerial + outData);
         }
 
         /// <summary>
@@ -498,6 +624,7 @@ namespace zsdxsy
         /// </summary>
         private void delItemControlFromItemPanel()
         {
+            DevComponents.DotNetBar.ButtonX btnMeal = null;
             Dictionary<string, ConsumeDetail>.ValueCollection valueColl = dicConsumeItems.Values;
             foreach (ConsumeDetail cd in valueColl)
             {
@@ -513,8 +640,76 @@ namespace zsdxsy
                 DevComponents.DotNetBar.ButtonX btnItemReduce = (DevComponents.DotNetBar.ButtonX)gboxConsumeItems.Controls.Find("btnReduce_" + cd.detailName, false)[0];
                 gboxConsumeItems.Controls.Remove(btnItemReduce);
 
-                DevComponents.DotNetBar.ButtonX btnMeal = (DevComponents.DotNetBar.ButtonX)plSelectItems.Controls.Find("btn_" + cd.detailName, false)[0];
-                btnMeal.Enabled = true;
+                switch (dinnerType)
+                {
+                    case 1:
+                        btnMeal = (DevComponents.DotNetBar.ButtonX)plSelectItems.Controls.Find("btn_" + cd.detailName, false)[0];
+                        break;
+                    case 2:
+                        if (plDianHun.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plDianHun.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plDianShu.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plDianShu.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plDianTang.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plDianTang.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plDianZhu.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plDianZhu.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plDianJiu.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plDianJiu.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plDianOther.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plDianOther.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        break;
+                    case 3:
+                        if (plWeiHun.Controls.ContainsKey("btn_" + cd.detailName)) {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plWeiHun.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plWeiShu.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plWeiShu.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plWeiTang.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plWeiTang.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plWeiZhu.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plWeiZhu.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plWeiJiu.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plWeiJiu.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        if (plWeiOther.Controls.ContainsKey("btn_" + cd.detailName))
+                        {
+                            btnMeal = (DevComponents.DotNetBar.ButtonX)plWeiOther.Controls.Find("btn_" + cd.detailName, false)[0];
+                            break;
+                        }
+                        break;
+                }
+                 btnMeal.Enabled = true;
             }
             dicConsumeItems.Clear();
             txtNeedPay.Text = "0";

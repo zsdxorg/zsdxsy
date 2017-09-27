@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInfo));
             this.lblInfo = new DevComponents.DotNetBar.LabelX();
             this.btnOk = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
@@ -35,6 +36,7 @@
             // 
             // lblInfo
             // 
+            this.lblInfo.AutoSize = true;
             this.lblInfo.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
             this.lblInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             // 
@@ -42,9 +44,9 @@
             // 
             this.lblInfo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblInfo.Font = new System.Drawing.Font("宋体", 21.75F);
-            this.lblInfo.Location = new System.Drawing.Point(64, 33);
+            this.lblInfo.Location = new System.Drawing.Point(132, 119);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(569, 223);
+            this.lblInfo.Size = new System.Drawing.Size(117, 37);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "labelX1";
             // 
@@ -61,6 +63,7 @@
             this.btnOk.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
             this.btnOk.TabIndex = 7;
             this.btnOk.Text = "确 定";
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -75,6 +78,7 @@
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "取  消";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmInfo
             // 
@@ -86,12 +90,14 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblInfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "信息提示";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

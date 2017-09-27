@@ -113,6 +113,16 @@ namespace zsdxsy.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap snap12 {
+            get {
+                object obj = ResourceManager.GetObject("snap12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Snap13 {
             get {
                 object obj = ResourceManager.GetObject("Snap13", resourceCulture);

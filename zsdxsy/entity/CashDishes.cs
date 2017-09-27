@@ -36,16 +36,11 @@ namespace zsdxsy.entity
         /// <summary>
         /// 菜品编码
         /// </summary>
-        public short dishesCode { get; set; }
+        //public short dishesCode { get; set; }
 
         /// <summary>
         /// 菜品单价
         /// </summary>
         public Decimal dishesPrice { get; set; }
-
-        /// <summary>
-        /// 菜品说明
-        /// </summary>
-        public string dishesExplain { get; set; }
     }
 }

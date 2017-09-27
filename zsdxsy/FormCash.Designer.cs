@@ -29,33 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCash));
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.btnChangeCount = new DevComponents.DotNetBar.ButtonX();
+            this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.tcDinnerType = new DevComponents.DotNetBar.TabControl();
-            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
-            this.stcDian = new DevComponents.DotNetBar.SuperTabControl();
-            this.superTabControlPanel6 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plDianOther = new System.Windows.Forms.Panel();
-            this.superTabItem6 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel5 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plDianJiu = new System.Windows.Forms.Panel();
-            this.superTabItem5 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel4 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plDianZhu = new System.Windows.Forms.Panel();
-            this.superTabItem4 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel3 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plDianShu = new System.Windows.Forms.Panel();
-            this.superTabItem3 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel2 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plDianHai = new System.Windows.Forms.Panel();
-            this.superTabItem2 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plDianHun = new System.Windows.Forms.Panel();
-            this.superTabItem1 = new DevComponents.DotNetBar.SuperTabItem();
-            this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tbiDian = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
             this.plSelectItems = new DevComponents.DotNetBar.PanelEx();
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
@@ -65,10 +44,29 @@
             this.btn_普通 = new DevComponents.DotNetBar.ButtonX();
             this.tbiKuai = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
+            this.tcWei = new System.Windows.Forms.TabControl();
+            this.plWeiHun = new System.Windows.Forms.TabPage();
+            this.plWeiShu = new System.Windows.Forms.TabPage();
+            this.plWeiTang = new System.Windows.Forms.TabPage();
+            this.plWeiZhu = new System.Windows.Forms.TabPage();
+            this.plWeiJiu = new System.Windows.Forms.TabPage();
+            this.plWeiOther = new System.Windows.Forms.TabPage();
             this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbiWei = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+            this.tcDian = new System.Windows.Forms.TabControl();
+            this.plDianHun = new System.Windows.Forms.TabPage();
+            this.plDianShu = new System.Windows.Forms.TabPage();
+            this.plDianTang = new System.Windows.Forms.TabPage();
+            this.plDianZhu = new System.Windows.Forms.TabPage();
+            this.plDianJiu = new System.Windows.Forms.TabPage();
+            this.plDianOther = new System.Windows.Forms.TabPage();
+            this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
+            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.tbiDian = new DevComponents.DotNetBar.TabItem(this.components);
             this.gboxVisitor = new System.Windows.Forms.GroupBox();
             this.txtVisitor = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtReception = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -77,6 +75,9 @@
             this.gboxConsumeItems = new System.Windows.Forms.GroupBox();
             this.lblConsumeType = new DevComponents.DotNetBar.LabelX();
             this.gboxCash = new System.Windows.Forms.GroupBox();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.txtWeiShu = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOk = new DevComponents.DotNetBar.ButtonX();
             this.txtChange = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -86,57 +87,21 @@
             this.txtNeedPay = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lblNeedPay = new DevComponents.DotNetBar.LabelX();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
-            this.txtWeiShu = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.stcWei = new DevComponents.DotNetBar.SuperTabControl();
-            this.superTabControlPanel7 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plWeiOther = new System.Windows.Forms.Panel();
-            this.superTabItem7 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel8 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plWeiJiu = new System.Windows.Forms.Panel();
-            this.superTabItem8 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel9 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plWeiZhu = new System.Windows.Forms.Panel();
-            this.superTabItem9 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel10 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plWeiShu = new System.Windows.Forms.Panel();
-            this.superTabItem10 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel11 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plWeiHai = new System.Windows.Forms.Panel();
-            this.superTabItem11 = new DevComponents.DotNetBar.SuperTabItem();
-            this.superTabControlPanel12 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.plWeiHun = new System.Windows.Forms.Panel();
-            this.superTabItem12 = new DevComponents.DotNetBar.SuperTabItem();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcDinnerType)).BeginInit();
             this.tcDinnerType.SuspendLayout();
-            this.tabControlPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stcDian)).BeginInit();
-            this.stcDian.SuspendLayout();
-            this.superTabControlPanel6.SuspendLayout();
-            this.superTabControlPanel5.SuspendLayout();
-            this.superTabControlPanel4.SuspendLayout();
-            this.superTabControlPanel3.SuspendLayout();
-            this.superTabControlPanel2.SuspendLayout();
-            this.superTabControlPanel1.SuspendLayout();
-            this.panelEx5.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
             this.panelEx3.SuspendLayout();
             this.tabControlPanel3.SuspendLayout();
+            this.tcWei.SuspendLayout();
             this.panelEx4.SuspendLayout();
+            this.tabControlPanel2.SuspendLayout();
+            this.tcDian.SuspendLayout();
+            this.panelEx5.SuspendLayout();
             this.gboxVisitor.SuspendLayout();
             this.gboxConsumeItems.SuspendLayout();
             this.gboxCash.SuspendLayout();
             this.panelEx2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stcWei)).BeginInit();
-            this.stcWei.SuspendLayout();
-            this.superTabControlPanel7.SuspendLayout();
-            this.superTabControlPanel8.SuspendLayout();
-            this.superTabControlPanel9.SuspendLayout();
-            this.superTabControlPanel10.SuspendLayout();
-            this.superTabControlPanel11.SuspendLayout();
-            this.superTabControlPanel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // skinEngine1
@@ -152,13 +117,15 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.btnChangeCount);
+            this.panelEx1.Controls.Add(this.btnExit);
             this.panelEx1.Controls.Add(this.tcDinnerType);
             this.panelEx1.Controls.Add(this.gboxVisitor);
             this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(1297, 984);
+            this.panelEx1.Size = new System.Drawing.Size(1297, 1011);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
@@ -168,308 +135,58 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 13;
             // 
+            // btnChangeCount
+            // 
+            this.btnChangeCount.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnChangeCount.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
+            this.btnChangeCount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeCount.Font = new System.Drawing.Font("宋体", 21.75F);
+            this.btnChangeCount.Image = global::zsdxsy.Properties.Resources.Cancel;
+            this.btnChangeCount.Location = new System.Drawing.Point(382, 897);
+            this.btnChangeCount.Name = "btnChangeCount";
+            this.btnChangeCount.Size = new System.Drawing.Size(167, 69);
+            this.btnChangeCount.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
+            this.btnChangeCount.TabIndex = 9;
+            this.btnChangeCount.Text = "切换账号";
+            this.btnChangeCount.Click += new System.EventHandler(this.btnChangeCount_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Font = new System.Drawing.Font("宋体", 21.75F);
+            this.btnExit.Image = global::zsdxsy.Properties.Resources.Apply;
+            this.btnExit.Location = new System.Drawing.Point(189, 897);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(149, 69);
+            this.btnExit.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
+            this.btnExit.TabIndex = 8;
+            this.btnExit.Text = "退 出";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // tcDinnerType
             // 
             this.tcDinnerType.BackColor = System.Drawing.Color.White;
             this.tcDinnerType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tcDinnerType.CanReorderTabs = true;
+            this.tcDinnerType.Controls.Add(this.tabControlPanel1);
             this.tcDinnerType.Controls.Add(this.tabControlPanel3);
             this.tcDinnerType.Controls.Add(this.tabControlPanel2);
-            this.tcDinnerType.Controls.Add(this.tabControlPanel1);
-            this.tcDinnerType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcDinnerType.Dock = System.Windows.Forms.DockStyle.Top;
             this.tcDinnerType.Font = new System.Drawing.Font("宋体", 26.25F);
             this.tcDinnerType.ForeColor = System.Drawing.Color.Black;
             this.tcDinnerType.Location = new System.Drawing.Point(0, 0);
             this.tcDinnerType.Name = "tcDinnerType";
             this.tcDinnerType.SelectedTabFont = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Bold);
             this.tcDinnerType.SelectedTabIndex = 0;
-            this.tcDinnerType.Size = new System.Drawing.Size(1297, 813);
+            this.tcDinnerType.Size = new System.Drawing.Size(1297, 730);
             this.tcDinnerType.TabIndex = 5;
             this.tcDinnerType.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             this.tcDinnerType.Tabs.Add(this.tbiKuai);
             this.tcDinnerType.Tabs.Add(this.tbiDian);
             this.tcDinnerType.Tabs.Add(this.tbiWei);
             this.tcDinnerType.Text = "tabControl1";
-            // 
-            // tabControlPanel2
-            // 
-            this.tabControlPanel2.Controls.Add(this.stcDian);
-            this.tabControlPanel2.Controls.Add(this.panelEx5);
-            this.tabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty;
-            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Location = new System.Drawing.Point(0, 55);
-            this.tabControlPanel2.Name = "tabControlPanel2";
-            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(1297, 758);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel2.Style.GradientAngle = 90;
-            this.tabControlPanel2.TabIndex = 5;
-            this.tabControlPanel2.TabItem = this.tbiDian;
-            // 
-            // stcDian
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.stcDian.ControlBox.CloseBox.Name = "";
-            // 
-            // 
-            // 
-            this.stcDian.ControlBox.MenuBox.Name = "";
-            this.stcDian.ControlBox.Name = "";
-            this.stcDian.ControlBox.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.stcDian.ControlBox.MenuBox,
-            this.stcDian.ControlBox.CloseBox});
-            this.stcDian.Controls.Add(this.superTabControlPanel6);
-            this.stcDian.Controls.Add(this.superTabControlPanel5);
-            this.stcDian.Controls.Add(this.superTabControlPanel4);
-            this.stcDian.Controls.Add(this.superTabControlPanel3);
-            this.stcDian.Controls.Add(this.superTabControlPanel2);
-            this.stcDian.Controls.Add(this.superTabControlPanel1);
-            this.stcDian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stcDian.Location = new System.Drawing.Point(1, 1);
-            this.stcDian.Name = "stcDian";
-            this.stcDian.ReorderTabsEnabled = true;
-            this.stcDian.SelectedTabFont = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Bold);
-            this.stcDian.SelectedTabIndex = 5;
-            this.stcDian.Size = new System.Drawing.Size(1295, 673);
-            this.stcDian.TabFont = new System.Drawing.Font("宋体", 26.25F);
-            this.stcDian.TabIndex = 8;
-            this.stcDian.Tabs.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.superTabItem1,
-            this.superTabItem2,
-            this.superTabItem3,
-            this.superTabItem4,
-            this.superTabItem5,
-            this.superTabItem6});
-            this.stcDian.Text = "素 菜";
-            // 
-            // superTabControlPanel6
-            // 
-            this.superTabControlPanel6.Controls.Add(this.plDianOther);
-            this.superTabControlPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel6.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel6.Name = "superTabControlPanel6";
-            this.superTabControlPanel6.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel6.TabIndex = 0;
-            this.superTabControlPanel6.TabItem = this.superTabItem6;
-            // 
-            // plDianOther
-            // 
-            this.plDianOther.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plDianOther.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianOther.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDianOther.Location = new System.Drawing.Point(0, 0);
-            this.plDianOther.Name = "plDianOther";
-            this.plDianOther.Size = new System.Drawing.Size(1295, 616);
-            this.plDianOther.TabIndex = 0;
-            // 
-            // superTabItem6
-            // 
-            this.superTabItem6.AttachedControl = this.superTabControlPanel6;
-            this.superTabItem6.GlobalItem = false;
-            this.superTabItem6.Name = "superTabItem6";
-            this.superTabItem6.Text = "其 它";
-            // 
-            // superTabControlPanel5
-            // 
-            this.superTabControlPanel5.Controls.Add(this.plDianJiu);
-            this.superTabControlPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel5.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel5.Name = "superTabControlPanel5";
-            this.superTabControlPanel5.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel5.TabIndex = 0;
-            this.superTabControlPanel5.TabItem = this.superTabItem5;
-            // 
-            // plDianJiu
-            // 
-            this.plDianJiu.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plDianJiu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianJiu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDianJiu.Location = new System.Drawing.Point(0, 0);
-            this.plDianJiu.Name = "plDianJiu";
-            this.plDianJiu.Size = new System.Drawing.Size(1295, 616);
-            this.plDianJiu.TabIndex = 0;
-            // 
-            // superTabItem5
-            // 
-            this.superTabItem5.AttachedControl = this.superTabControlPanel5;
-            this.superTabItem5.GlobalItem = false;
-            this.superTabItem5.Name = "superTabItem5";
-            this.superTabItem5.Text = "酒 水";
-            // 
-            // superTabControlPanel4
-            // 
-            this.superTabControlPanel4.Controls.Add(this.plDianZhu);
-            this.superTabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel4.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel4.Name = "superTabControlPanel4";
-            this.superTabControlPanel4.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel4.TabIndex = 0;
-            this.superTabControlPanel4.TabItem = this.superTabItem4;
-            // 
-            // plDianZhu
-            // 
-            this.plDianZhu.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plDianZhu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianZhu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDianZhu.Location = new System.Drawing.Point(0, 0);
-            this.plDianZhu.Name = "plDianZhu";
-            this.plDianZhu.Size = new System.Drawing.Size(1295, 616);
-            this.plDianZhu.TabIndex = 0;
-            // 
-            // superTabItem4
-            // 
-            this.superTabItem4.AttachedControl = this.superTabControlPanel4;
-            this.superTabItem4.GlobalItem = false;
-            this.superTabItem4.Name = "superTabItem4";
-            this.superTabItem4.Text = "主 食";
-            // 
-            // superTabControlPanel3
-            // 
-            this.superTabControlPanel3.Controls.Add(this.plDianShu);
-            this.superTabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel3.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel3.Name = "superTabControlPanel3";
-            this.superTabControlPanel3.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel3.TabIndex = 0;
-            this.superTabControlPanel3.TabItem = this.superTabItem3;
-            // 
-            // plDianShu
-            // 
-            this.plDianShu.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plDianShu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianShu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDianShu.Location = new System.Drawing.Point(0, 0);
-            this.plDianShu.Name = "plDianShu";
-            this.plDianShu.Size = new System.Drawing.Size(1295, 616);
-            this.plDianShu.TabIndex = 0;
-            // 
-            // superTabItem3
-            // 
-            this.superTabItem3.AttachedControl = this.superTabControlPanel3;
-            this.superTabItem3.GlobalItem = false;
-            this.superTabItem3.Name = "superTabItem3";
-            this.superTabItem3.Text = "素 菜";
-            // 
-            // superTabControlPanel2
-            // 
-            this.superTabControlPanel2.Controls.Add(this.plDianHai);
-            this.superTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel2.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel2.Name = "superTabControlPanel2";
-            this.superTabControlPanel2.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel2.TabIndex = 0;
-            this.superTabControlPanel2.TabItem = this.superTabItem2;
-            // 
-            // plDianHai
-            // 
-            this.plDianHai.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plDianHai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianHai.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDianHai.Location = new System.Drawing.Point(0, 0);
-            this.plDianHai.Name = "plDianHai";
-            this.plDianHai.Size = new System.Drawing.Size(1295, 616);
-            this.plDianHai.TabIndex = 0;
-            // 
-            // superTabItem2
-            // 
-            this.superTabItem2.AttachedControl = this.superTabControlPanel2;
-            this.superTabItem2.GlobalItem = false;
-            this.superTabItem2.Name = "superTabItem2";
-            this.superTabItem2.Text = "海 鲜";
-            // 
-            // superTabControlPanel1
-            // 
-            this.superTabControlPanel1.Controls.Add(this.plDianHun);
-            this.superTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel1.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel1.Name = "superTabControlPanel1";
-            this.superTabControlPanel1.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel1.TabIndex = 1;
-            this.superTabControlPanel1.TabItem = this.superTabItem1;
-            // 
-            // plDianHun
-            // 
-            this.plDianHun.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plDianHun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianHun.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDianHun.Location = new System.Drawing.Point(0, 0);
-            this.plDianHun.Name = "plDianHun";
-            this.plDianHun.Size = new System.Drawing.Size(1295, 616);
-            this.plDianHun.TabIndex = 0;
-            // 
-            // superTabItem1
-            // 
-            this.superTabItem1.AttachedControl = this.superTabControlPanel1;
-            this.superTabItem1.GlobalItem = false;
-            this.superTabItem1.Name = "superTabItem1";
-            this.superTabItem1.Text = "荦 菜";
-            // 
-            // panelEx5
-            // 
-            this.panelEx5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx5.Controls.Add(this.buttonX2);
-            this.panelEx5.Controls.Add(this.textBoxX2);
-            this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx5.Location = new System.Drawing.Point(1, 674);
-            this.panelEx5.Name = "panelEx5";
-            this.panelEx5.Size = new System.Drawing.Size(1295, 83);
-            this.panelEx5.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx5.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.panelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx5.Style.GradientAngle = 90;
-            this.panelEx5.TabIndex = 4;
-            // 
-            // buttonX2
-            // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
-            this.buttonX2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonX2.Image = global::zsdxsy.Properties.Resources.save_32;
-            this.buttonX2.Location = new System.Drawing.Point(584, 22);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(149, 47);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
-            this.buttonX2.TabIndex = 7;
-            this.buttonX2.Text = "添加";
-            // 
-            // textBoxX2
-            // 
-            this.textBoxX2.BackColor = System.Drawing.Color.Aqua;
-            // 
-            // 
-            // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.DisabledBackColor = System.Drawing.Color.White;
-            this.textBoxX2.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX2.Location = new System.Drawing.Point(16, 22);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.PreventEnterBeep = true;
-            this.textBoxX2.Size = new System.Drawing.Size(559, 47);
-            this.textBoxX2.TabIndex = 5;
-            // 
-            // tbiDian
-            // 
-            this.tbiDian.AttachedControl = this.tabControlPanel2;
-            this.tbiDian.Name = "tbiDian";
-            this.tbiDian.Text = "点 餐";
-            this.tbiDian.Click += new System.EventHandler(this.tbiDian_Click);
             // 
             // tabControlPanel1
             // 
@@ -480,7 +197,7 @@
             this.tabControlPanel1.Location = new System.Drawing.Point(0, 55);
             this.tabControlPanel1.Name = "tabControlPanel1";
             this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel1.Size = new System.Drawing.Size(1297, 758);
+            this.tabControlPanel1.Size = new System.Drawing.Size(1297, 675);
             this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
             this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -499,10 +216,9 @@
             this.plSelectItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.plSelectItems.Location = new System.Drawing.Point(1, 97);
             this.plSelectItems.Name = "plSelectItems";
-            this.plSelectItems.Size = new System.Drawing.Size(1295, 660);
+            this.plSelectItems.Size = new System.Drawing.Size(1295, 577);
             this.plSelectItems.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.plSelectItems.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.plSelectItems.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
             this.plSelectItems.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
             this.plSelectItems.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
             this.plSelectItems.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
@@ -596,14 +312,14 @@
             // 
             // tabControlPanel3
             // 
-            this.tabControlPanel3.Controls.Add(this.stcWei);
+            this.tabControlPanel3.Controls.Add(this.tcWei);
             this.tabControlPanel3.Controls.Add(this.panelEx4);
             this.tabControlPanel3.DisabledBackColor = System.Drawing.Color.Empty;
             this.tabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPanel3.Location = new System.Drawing.Point(0, 55);
             this.tabControlPanel3.Name = "tabControlPanel3";
             this.tabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel3.Size = new System.Drawing.Size(1297, 758);
+            this.tabControlPanel3.Size = new System.Drawing.Size(1297, 675);
             this.tabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
             this.tabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.tabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -614,6 +330,101 @@
             this.tabControlPanel3.TabIndex = 9;
             this.tabControlPanel3.TabItem = this.tbiWei;
             // 
+            // tcWei
+            // 
+            this.tcWei.Controls.Add(this.plWeiHun);
+            this.tcWei.Controls.Add(this.plWeiShu);
+            this.tcWei.Controls.Add(this.plWeiTang);
+            this.tcWei.Controls.Add(this.plWeiZhu);
+            this.tcWei.Controls.Add(this.plWeiJiu);
+            this.tcWei.Controls.Add(this.plWeiOther);
+            this.tcWei.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcWei.Location = new System.Drawing.Point(1, 1);
+            this.tcWei.Name = "tcWei";
+            this.tcWei.SelectedIndex = 0;
+            this.tcWei.Size = new System.Drawing.Size(1295, 590);
+            this.tcWei.TabIndex = 13;
+            // 
+            // plWeiHun
+            // 
+            this.plWeiHun.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.plWeiHun.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plWeiHun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plWeiHun.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plWeiHun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plWeiHun.Location = new System.Drawing.Point(4, 45);
+            this.plWeiHun.Name = "plWeiHun";
+            this.plWeiHun.Padding = new System.Windows.Forms.Padding(3);
+            this.plWeiHun.Size = new System.Drawing.Size(1287, 541);
+            this.plWeiHun.TabIndex = 0;
+            this.plWeiHun.Text = "水产肉类";
+            // 
+            // plWeiShu
+            // 
+            this.plWeiShu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plWeiShu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plWeiShu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plWeiShu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plWeiShu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plWeiShu.Location = new System.Drawing.Point(4, 45);
+            this.plWeiShu.Name = "plWeiShu";
+            this.plWeiShu.Padding = new System.Windows.Forms.Padding(3);
+            this.plWeiShu.Size = new System.Drawing.Size(1287, 596);
+            this.plWeiShu.TabIndex = 1;
+            this.plWeiShu.Text = "时令蔬菜";
+            // 
+            // plWeiTang
+            // 
+            this.plWeiTang.BackColor = System.Drawing.Color.SkyBlue;
+            this.plWeiTang.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plWeiTang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plWeiTang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plWeiTang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plWeiTang.Location = new System.Drawing.Point(4, 45);
+            this.plWeiTang.Name = "plWeiTang";
+            this.plWeiTang.Size = new System.Drawing.Size(1287, 596);
+            this.plWeiTang.TabIndex = 2;
+            this.plWeiTang.Text = "汤 类";
+            // 
+            // plWeiZhu
+            // 
+            this.plWeiZhu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plWeiZhu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plWeiZhu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plWeiZhu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plWeiZhu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plWeiZhu.Location = new System.Drawing.Point(4, 45);
+            this.plWeiZhu.Name = "plWeiZhu";
+            this.plWeiZhu.Size = new System.Drawing.Size(1287, 596);
+            this.plWeiZhu.TabIndex = 3;
+            this.plWeiZhu.Text = "主食小吃";
+            // 
+            // plWeiJiu
+            // 
+            this.plWeiJiu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plWeiJiu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plWeiJiu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plWeiJiu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plWeiJiu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plWeiJiu.Location = new System.Drawing.Point(4, 45);
+            this.plWeiJiu.Name = "plWeiJiu";
+            this.plWeiJiu.Size = new System.Drawing.Size(1287, 596);
+            this.plWeiJiu.TabIndex = 4;
+            this.plWeiJiu.Text = "酒水饮料";
+            // 
+            // plWeiOther
+            // 
+            this.plWeiOther.BackColor = System.Drawing.Color.SkyBlue;
+            this.plWeiOther.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plWeiOther.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plWeiOther.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plWeiOther.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plWeiOther.Location = new System.Drawing.Point(4, 45);
+            this.plWeiOther.Name = "plWeiOther";
+            this.plWeiOther.Size = new System.Drawing.Size(1287, 596);
+            this.plWeiOther.TabIndex = 5;
+            this.plWeiOther.Text = "其 它";
+            // 
             // panelEx4
             // 
             this.panelEx4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -623,7 +434,7 @@
             this.panelEx4.Controls.Add(this.textBoxX1);
             this.panelEx4.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx4.Location = new System.Drawing.Point(1, 674);
+            this.panelEx4.Location = new System.Drawing.Point(1, 591);
             this.panelEx4.Name = "panelEx4";
             this.panelEx4.Size = new System.Drawing.Size(1295, 83);
             this.panelEx4.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -671,17 +482,188 @@
             this.tbiWei.Text = "围 餐";
             this.tbiWei.Click += new System.EventHandler(this.tbiWei_Click);
             // 
+            // tabControlPanel2
+            // 
+            this.tabControlPanel2.Controls.Add(this.tcDian);
+            this.tabControlPanel2.Controls.Add(this.panelEx5);
+            this.tabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel2.Location = new System.Drawing.Point(0, 55);
+            this.tabControlPanel2.Name = "tabControlPanel2";
+            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel2.Size = new System.Drawing.Size(1297, 675);
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel2.Style.GradientAngle = 90;
+            this.tabControlPanel2.TabIndex = 5;
+            this.tabControlPanel2.TabItem = this.tbiDian;
+            // 
+            // tcDian
+            // 
+            this.tcDian.Controls.Add(this.plDianHun);
+            this.tcDian.Controls.Add(this.plDianShu);
+            this.tcDian.Controls.Add(this.plDianTang);
+            this.tcDian.Controls.Add(this.plDianZhu);
+            this.tcDian.Controls.Add(this.plDianJiu);
+            this.tcDian.Controls.Add(this.plDianOther);
+            this.tcDian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcDian.Location = new System.Drawing.Point(1, 1);
+            this.tcDian.Name = "tcDian";
+            this.tcDian.SelectedIndex = 0;
+            this.tcDian.Size = new System.Drawing.Size(1295, 590);
+            this.tcDian.TabIndex = 12;
+            // 
+            // plDianHun
+            // 
+            this.plDianHun.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.plDianHun.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianHun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianHun.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianHun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianHun.Location = new System.Drawing.Point(4, 45);
+            this.plDianHun.Name = "plDianHun";
+            this.plDianHun.Padding = new System.Windows.Forms.Padding(3);
+            this.plDianHun.Size = new System.Drawing.Size(1287, 541);
+            this.plDianHun.TabIndex = 0;
+            this.plDianHun.Text = "水产肉类";
+            // 
+            // plDianShu
+            // 
+            this.plDianShu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianShu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianShu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianShu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianShu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianShu.Location = new System.Drawing.Point(4, 45);
+            this.plDianShu.Name = "plDianShu";
+            this.plDianShu.Padding = new System.Windows.Forms.Padding(3);
+            this.plDianShu.Size = new System.Drawing.Size(1287, 596);
+            this.plDianShu.TabIndex = 1;
+            this.plDianShu.Text = "时令蔬菜";
+            // 
+            // plDianTang
+            // 
+            this.plDianTang.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianTang.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianTang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianTang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianTang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianTang.Location = new System.Drawing.Point(4, 45);
+            this.plDianTang.Name = "plDianTang";
+            this.plDianTang.Size = new System.Drawing.Size(1287, 596);
+            this.plDianTang.TabIndex = 2;
+            this.plDianTang.Text = "汤 类";
+            // 
+            // plDianZhu
+            // 
+            this.plDianZhu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianZhu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianZhu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianZhu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianZhu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianZhu.Location = new System.Drawing.Point(4, 45);
+            this.plDianZhu.Name = "plDianZhu";
+            this.plDianZhu.Size = new System.Drawing.Size(1287, 596);
+            this.plDianZhu.TabIndex = 3;
+            this.plDianZhu.Text = "主食小吃";
+            // 
+            // plDianJiu
+            // 
+            this.plDianJiu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianJiu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianJiu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianJiu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianJiu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianJiu.Location = new System.Drawing.Point(4, 45);
+            this.plDianJiu.Name = "plDianJiu";
+            this.plDianJiu.Size = new System.Drawing.Size(1287, 596);
+            this.plDianJiu.TabIndex = 4;
+            this.plDianJiu.Text = "酒水饮料";
+            // 
+            // plDianOther
+            // 
+            this.plDianOther.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianOther.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianOther.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianOther.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianOther.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianOther.Location = new System.Drawing.Point(4, 45);
+            this.plDianOther.Name = "plDianOther";
+            this.plDianOther.Size = new System.Drawing.Size(1287, 596);
+            this.plDianOther.TabIndex = 5;
+            this.plDianOther.Text = "其 它";
+            // 
+            // panelEx5
+            // 
+            this.panelEx5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx5.Controls.Add(this.buttonX2);
+            this.panelEx5.Controls.Add(this.textBoxX2);
+            this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelEx5.Location = new System.Drawing.Point(1, 591);
+            this.panelEx5.Name = "panelEx5";
+            this.panelEx5.Size = new System.Drawing.Size(1295, 83);
+            this.panelEx5.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx5.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
+            this.panelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx5.Style.GradientAngle = 90;
+            this.panelEx5.TabIndex = 4;
+            // 
+            // buttonX2
+            // 
+            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
+            this.buttonX2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonX2.Image = global::zsdxsy.Properties.Resources.save_32;
+            this.buttonX2.Location = new System.Drawing.Point(584, 22);
+            this.buttonX2.Name = "buttonX2";
+            this.buttonX2.Size = new System.Drawing.Size(149, 47);
+            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
+            this.buttonX2.TabIndex = 7;
+            this.buttonX2.Text = "添加";
+            // 
+            // textBoxX2
+            // 
+            this.textBoxX2.BackColor = System.Drawing.Color.Aqua;
+            // 
+            // 
+            // 
+            this.textBoxX2.Border.Class = "TextBoxBorder";
+            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxX2.DisabledBackColor = System.Drawing.Color.White;
+            this.textBoxX2.ForeColor = System.Drawing.Color.Black;
+            this.textBoxX2.Location = new System.Drawing.Point(16, 22);
+            this.textBoxX2.Name = "textBoxX2";
+            this.textBoxX2.PreventEnterBeep = true;
+            this.textBoxX2.Size = new System.Drawing.Size(559, 47);
+            this.textBoxX2.TabIndex = 5;
+            // 
+            // tbiDian
+            // 
+            this.tbiDian.AttachedControl = this.tabControlPanel2;
+            this.tbiDian.Name = "tbiDian";
+            this.tbiDian.Text = "点 餐";
+            this.tbiDian.Click += new System.EventHandler(this.tbiDian_Click);
+            // 
             // gboxVisitor
             // 
             this.gboxVisitor.Controls.Add(this.txtVisitor);
             this.gboxVisitor.Controls.Add(this.txtReception);
             this.gboxVisitor.Controls.Add(this.lblVisitor);
             this.gboxVisitor.Controls.Add(this.lblReception);
-            this.gboxVisitor.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gboxVisitor.Font = new System.Drawing.Font("宋体", 21.75F);
-            this.gboxVisitor.Location = new System.Drawing.Point(0, 813);
+            this.gboxVisitor.Location = new System.Drawing.Point(0, 739);
             this.gboxVisitor.Name = "gboxVisitor";
-            this.gboxVisitor.Size = new System.Drawing.Size(1297, 171);
+            this.gboxVisitor.Size = new System.Drawing.Size(1297, 144);
             this.gboxVisitor.TabIndex = 4;
             this.gboxVisitor.TabStop = false;
             this.gboxVisitor.Text = "接待信息";
@@ -749,7 +731,7 @@
             this.gboxConsumeItems.Font = new System.Drawing.Font("宋体", 21.75F);
             this.gboxConsumeItems.Location = new System.Drawing.Point(0, 0);
             this.gboxConsumeItems.Name = "gboxConsumeItems";
-            this.gboxConsumeItems.Size = new System.Drawing.Size(445, 984);
+            this.gboxConsumeItems.Size = new System.Drawing.Size(445, 1011);
             this.gboxConsumeItems.TabIndex = 0;
             this.gboxConsumeItems.TabStop = false;
             this.gboxConsumeItems.Text = "消费明细";
@@ -782,12 +764,57 @@
             this.gboxCash.Controls.Add(this.lblNeedPay);
             this.gboxCash.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gboxCash.Font = new System.Drawing.Font("宋体", 21.75F);
-            this.gboxCash.Location = new System.Drawing.Point(0, 582);
+            this.gboxCash.Location = new System.Drawing.Point(0, 609);
             this.gboxCash.Name = "gboxCash";
             this.gboxCash.Size = new System.Drawing.Size(445, 402);
             this.gboxCash.TabIndex = 1;
             this.gboxCash.TabStop = false;
             this.gboxCash.Text = "结 算";
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX2.FontBold = true;
+            this.labelX2.ForeColor = System.Drawing.Color.Red;
+            this.labelX2.Location = new System.Drawing.Point(253, 40);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(172, 46);
+            this.labelX2.TabIndex = 10;
+            this.labelX2.Text = "点餐或围餐时输入";
+            // 
+            // txtWeiShu
+            // 
+            this.txtWeiShu.BackColor = System.Drawing.Color.Turquoise;
+            // 
+            // 
+            // 
+            this.txtWeiShu.Border.Class = "TextBoxBorder";
+            this.txtWeiShu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWeiShu.DisabledBackColor = System.Drawing.Color.White;
+            this.txtWeiShu.ForeColor = System.Drawing.Color.Black;
+            this.txtWeiShu.Location = new System.Drawing.Point(162, 40);
+            this.txtWeiShu.Name = "txtWeiShu";
+            this.txtWeiShu.PreventEnterBeep = true;
+            this.txtWeiShu.Size = new System.Drawing.Size(85, 41);
+            this.txtWeiShu.TabIndex = 9;
+            this.txtWeiShu.Text = "0";
+            this.txtWeiShu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(17, 42);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(164, 44);
+            this.labelX1.TabIndex = 8;
+            this.labelX1.Text = "就餐围数：";
             // 
             // btnCancel
             // 
@@ -919,7 +946,7 @@
             this.panelEx2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelEx2.Location = new System.Drawing.Point(852, 0);
             this.panelEx2.Name = "panelEx2";
-            this.panelEx2.Size = new System.Drawing.Size(445, 984);
+            this.panelEx2.Size = new System.Drawing.Size(445, 1011);
             this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx2.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
@@ -929,296 +956,36 @@
             this.panelEx2.Style.GradientAngle = 90;
             this.panelEx2.TabIndex = 17;
             // 
-            // txtWeiShu
-            // 
-            this.txtWeiShu.BackColor = System.Drawing.Color.Turquoise;
-            // 
-            // 
-            // 
-            this.txtWeiShu.Border.Class = "TextBoxBorder";
-            this.txtWeiShu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWeiShu.DisabledBackColor = System.Drawing.Color.White;
-            this.txtWeiShu.ForeColor = System.Drawing.Color.Black;
-            this.txtWeiShu.Location = new System.Drawing.Point(162, 40);
-            this.txtWeiShu.Name = "txtWeiShu";
-            this.txtWeiShu.PreventEnterBeep = true;
-            this.txtWeiShu.Size = new System.Drawing.Size(85, 41);
-            this.txtWeiShu.TabIndex = 9;
-            this.txtWeiShu.Text = "0";
-            this.txtWeiShu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(17, 42);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(164, 44);
-            this.labelX1.TabIndex = 8;
-            this.labelX1.Text = "就餐围数：";
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX2.FontBold = true;
-            this.labelX2.ForeColor = System.Drawing.Color.Red;
-            this.labelX2.Location = new System.Drawing.Point(253, 40);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(172, 46);
-            this.labelX2.TabIndex = 10;
-            this.labelX2.Text = "点餐或围餐时输入";
-            // 
-            // stcWei
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.stcWei.ControlBox.CloseBox.Name = "";
-            // 
-            // 
-            // 
-            this.stcWei.ControlBox.MenuBox.Name = "";
-            this.stcWei.ControlBox.Name = "";
-            this.stcWei.ControlBox.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.stcWei.ControlBox.MenuBox,
-            this.stcWei.ControlBox.CloseBox});
-            this.stcWei.Controls.Add(this.superTabControlPanel7);
-            this.stcWei.Controls.Add(this.superTabControlPanel8);
-            this.stcWei.Controls.Add(this.superTabControlPanel9);
-            this.stcWei.Controls.Add(this.superTabControlPanel10);
-            this.stcWei.Controls.Add(this.superTabControlPanel11);
-            this.stcWei.Controls.Add(this.superTabControlPanel12);
-            this.stcWei.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stcWei.Location = new System.Drawing.Point(1, 1);
-            this.stcWei.Name = "stcWei";
-            this.stcWei.ReorderTabsEnabled = true;
-            this.stcWei.SelectedTabFont = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Bold);
-            this.stcWei.SelectedTabIndex = 5;
-            this.stcWei.Size = new System.Drawing.Size(1295, 673);
-            this.stcWei.TabFont = new System.Drawing.Font("宋体", 26.25F);
-            this.stcWei.TabIndex = 9;
-            this.stcWei.Tabs.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.superTabItem12,
-            this.superTabItem11,
-            this.superTabItem10,
-            this.superTabItem9,
-            this.superTabItem8,
-            this.superTabItem7});
-            this.stcWei.Text = "素 菜";
-            // 
-            // superTabControlPanel7
-            // 
-            this.superTabControlPanel7.Controls.Add(this.plWeiOther);
-            this.superTabControlPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel7.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel7.Name = "superTabControlPanel7";
-            this.superTabControlPanel7.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel7.TabIndex = 0;
-            this.superTabControlPanel7.TabItem = this.superTabItem7;
-            // 
-            // plWeiOther
-            // 
-            this.plWeiOther.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plWeiOther.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plWeiOther.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plWeiOther.Location = new System.Drawing.Point(0, 0);
-            this.plWeiOther.Name = "plWeiOther";
-            this.plWeiOther.Size = new System.Drawing.Size(1295, 616);
-            this.plWeiOther.TabIndex = 0;
-            // 
-            // superTabItem7
-            // 
-            this.superTabItem7.AttachedControl = this.superTabControlPanel7;
-            this.superTabItem7.GlobalItem = false;
-            this.superTabItem7.Name = "superTabItem7";
-            this.superTabItem7.Text = "其 它";
-            // 
-            // superTabControlPanel8
-            // 
-            this.superTabControlPanel8.Controls.Add(this.plWeiJiu);
-            this.superTabControlPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel8.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel8.Name = "superTabControlPanel8";
-            this.superTabControlPanel8.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel8.TabIndex = 0;
-            this.superTabControlPanel8.TabItem = this.superTabItem8;
-            // 
-            // plWeiJiu
-            // 
-            this.plWeiJiu.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plWeiJiu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plWeiJiu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plWeiJiu.Location = new System.Drawing.Point(0, 0);
-            this.plWeiJiu.Name = "plWeiJiu";
-            this.plWeiJiu.Size = new System.Drawing.Size(1295, 616);
-            this.plWeiJiu.TabIndex = 0;
-            // 
-            // superTabItem8
-            // 
-            this.superTabItem8.AttachedControl = this.superTabControlPanel8;
-            this.superTabItem8.GlobalItem = false;
-            this.superTabItem8.Name = "superTabItem8";
-            this.superTabItem8.Text = "酒 水";
-            // 
-            // superTabControlPanel9
-            // 
-            this.superTabControlPanel9.Controls.Add(this.plWeiZhu);
-            this.superTabControlPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel9.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel9.Name = "superTabControlPanel9";
-            this.superTabControlPanel9.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel9.TabIndex = 0;
-            this.superTabControlPanel9.TabItem = this.superTabItem9;
-            // 
-            // plWeiZhu
-            // 
-            this.plWeiZhu.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plWeiZhu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plWeiZhu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plWeiZhu.Location = new System.Drawing.Point(0, 0);
-            this.plWeiZhu.Name = "plWeiZhu";
-            this.plWeiZhu.Size = new System.Drawing.Size(1295, 616);
-            this.plWeiZhu.TabIndex = 0;
-            // 
-            // superTabItem9
-            // 
-            this.superTabItem9.AttachedControl = this.superTabControlPanel9;
-            this.superTabItem9.GlobalItem = false;
-            this.superTabItem9.Name = "superTabItem9";
-            this.superTabItem9.Text = "主 食";
-            // 
-            // superTabControlPanel10
-            // 
-            this.superTabControlPanel10.Controls.Add(this.plWeiShu);
-            this.superTabControlPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel10.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel10.Name = "superTabControlPanel10";
-            this.superTabControlPanel10.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel10.TabIndex = 0;
-            this.superTabControlPanel10.TabItem = this.superTabItem10;
-            // 
-            // plWeiShu
-            // 
-            this.plWeiShu.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plWeiShu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plWeiShu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plWeiShu.Location = new System.Drawing.Point(0, 0);
-            this.plWeiShu.Name = "plWeiShu";
-            this.plWeiShu.Size = new System.Drawing.Size(1295, 616);
-            this.plWeiShu.TabIndex = 0;
-            // 
-            // superTabItem10
-            // 
-            this.superTabItem10.AttachedControl = this.superTabControlPanel10;
-            this.superTabItem10.GlobalItem = false;
-            this.superTabItem10.Name = "superTabItem10";
-            this.superTabItem10.Text = "素 菜";
-            // 
-            // superTabControlPanel11
-            // 
-            this.superTabControlPanel11.Controls.Add(this.plWeiHai);
-            this.superTabControlPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel11.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel11.Name = "superTabControlPanel11";
-            this.superTabControlPanel11.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel11.TabIndex = 0;
-            this.superTabControlPanel11.TabItem = this.superTabItem11;
-            // 
-            // plWeiHai
-            // 
-            this.plWeiHai.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plWeiHai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plWeiHai.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plWeiHai.Location = new System.Drawing.Point(0, 0);
-            this.plWeiHai.Name = "plWeiHai";
-            this.plWeiHai.Size = new System.Drawing.Size(1295, 616);
-            this.plWeiHai.TabIndex = 0;
-            // 
-            // superTabItem11
-            // 
-            this.superTabItem11.AttachedControl = this.superTabControlPanel11;
-            this.superTabItem11.GlobalItem = false;
-            this.superTabItem11.Name = "superTabItem11";
-            this.superTabItem11.Text = "海 鲜";
-            // 
-            // superTabControlPanel12
-            // 
-            this.superTabControlPanel12.Controls.Add(this.plWeiHun);
-            this.superTabControlPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel12.Location = new System.Drawing.Point(0, 57);
-            this.superTabControlPanel12.Name = "superTabControlPanel12";
-            this.superTabControlPanel12.Size = new System.Drawing.Size(1295, 616);
-            this.superTabControlPanel12.TabIndex = 1;
-            this.superTabControlPanel12.TabItem = this.superTabItem12;
-            // 
-            // plWeiHun
-            // 
-            this.plWeiHun.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plWeiHun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plWeiHun.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plWeiHun.Location = new System.Drawing.Point(0, 0);
-            this.plWeiHun.Name = "plWeiHun";
-            this.plWeiHun.Size = new System.Drawing.Size(1295, 616);
-            this.plWeiHun.TabIndex = 0;
-            // 
-            // superTabItem12
-            // 
-            this.superTabItem12.AttachedControl = this.superTabControlPanel12;
-            this.superTabItem12.GlobalItem = false;
-            this.superTabItem12.Name = "superTabItem12";
-            this.superTabItem12.Text = "荦 菜";
-            // 
             // frmCash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::zsdxsy.Properties.Resources.blue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1297, 984);
+            this.ClientSize = new System.Drawing.Size(1297, 1011);
             this.Controls.Add(this.panelEx2);
             this.Controls.Add(this.panelEx1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCash";
             this.Text = "中山市委党校收银系统";
             this.Load += new System.EventHandler(this.frmCash_Load);
             this.panelEx1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcDinnerType)).EndInit();
             this.tcDinnerType.ResumeLayout(false);
-            this.tabControlPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.stcDian)).EndInit();
-            this.stcDian.ResumeLayout(false);
-            this.superTabControlPanel6.ResumeLayout(false);
-            this.superTabControlPanel5.ResumeLayout(false);
-            this.superTabControlPanel4.ResumeLayout(false);
-            this.superTabControlPanel3.ResumeLayout(false);
-            this.superTabControlPanel2.ResumeLayout(false);
-            this.superTabControlPanel1.ResumeLayout(false);
-            this.panelEx5.ResumeLayout(false);
             this.tabControlPanel1.ResumeLayout(false);
             this.panelEx3.ResumeLayout(false);
             this.tabControlPanel3.ResumeLayout(false);
+            this.tcWei.ResumeLayout(false);
             this.panelEx4.ResumeLayout(false);
+            this.tabControlPanel2.ResumeLayout(false);
+            this.tcDian.ResumeLayout(false);
+            this.panelEx5.ResumeLayout(false);
             this.gboxVisitor.ResumeLayout(false);
             this.gboxConsumeItems.ResumeLayout(false);
             this.gboxConsumeItems.PerformLayout();
             this.gboxCash.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.stcWei)).EndInit();
-            this.stcWei.ResumeLayout(false);
-            this.superTabControlPanel7.ResumeLayout(false);
-            this.superTabControlPanel8.ResumeLayout(false);
-            this.superTabControlPanel9.ResumeLayout(false);
-            this.superTabControlPanel10.ResumeLayout(false);
-            this.superTabControlPanel11.ResumeLayout(false);
-            this.superTabControlPanel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1263,46 +1030,24 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtNeedPay;
         private DevComponents.DotNetBar.LabelX lblNeedPay;
         private DevComponents.DotNetBar.PanelEx panelEx2;
-        private DevComponents.DotNetBar.SuperTabControl stcDian;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel1;
-        private System.Windows.Forms.Panel plDianHun;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem1;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel6;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem6;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel5;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem5;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel4;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem4;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel3;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem3;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel2;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem2;
-        private System.Windows.Forms.Panel plDianOther;
-        private System.Windows.Forms.Panel plDianJiu;
-        private System.Windows.Forms.Panel plDianZhu;
-        private System.Windows.Forms.Panel plDianShu;
-        private System.Windows.Forms.Panel plDianHai;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.TextBoxX txtWeiShu;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.SuperTabControl stcWei;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel7;
-        private System.Windows.Forms.Panel plWeiOther;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem7;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel8;
-        private System.Windows.Forms.Panel plWeiJiu;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem8;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel9;
-        private System.Windows.Forms.Panel plWeiZhu;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem9;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel10;
-        private System.Windows.Forms.Panel plWeiShu;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem10;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel11;
-        private System.Windows.Forms.Panel plWeiHai;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem11;
-        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel12;
-        private System.Windows.Forms.Panel plWeiHun;
-        private DevComponents.DotNetBar.SuperTabItem superTabItem12;
+        private System.Windows.Forms.TabControl tcDian;
+        private System.Windows.Forms.TabPage plDianHun;
+        private System.Windows.Forms.TabPage plDianShu;
+        private System.Windows.Forms.TabPage plDianTang;
+        private System.Windows.Forms.TabPage plDianZhu;
+        private System.Windows.Forms.TabPage plDianJiu;
+        private System.Windows.Forms.TabPage plDianOther;
+        private System.Windows.Forms.TabControl tcWei;
+        private System.Windows.Forms.TabPage plWeiHun;
+        private System.Windows.Forms.TabPage plWeiShu;
+        private System.Windows.Forms.TabPage plWeiTang;
+        private System.Windows.Forms.TabPage plWeiZhu;
+        private System.Windows.Forms.TabPage plWeiJiu;
+        private System.Windows.Forms.TabPage plWeiOther;
+        private DevComponents.DotNetBar.ButtonX btnChangeCount;
+        private DevComponents.DotNetBar.ButtonX btnExit;
     }
 }

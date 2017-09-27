@@ -24,6 +24,6 @@ namespace zsdxsy.entity
     {
         public bool success { get; set; }
 
-        public string jsonData { get; set; }
+        public object obj { get; set; }
     }
 }
