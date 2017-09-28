@@ -44,5 +44,8 @@ namespace zsdxsy.entity
         public decimal changePay { get; set; }
         public string opertioner { get; set; }
         public string consumeState { get; set; }
+        public int clearingForm { get; set; }
+
+        public int mealType { get; set; }
     }
 }

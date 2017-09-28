@@ -45,9 +45,18 @@ namespace zsdxsy
         private int eatType = 1;
 
         /// <summary>
+        /// 餐类 1-早餐 2-午餐 3-晚餐 4-夜宵
+        /// </summary>
+        private int mealType = 1;
+        /// <summary>
         /// 本收银机启动时的起始收银序号
         /// </summary>
         int billCount = 1;
+
+        /// <summary>
+        /// 结算方式
+        /// </summary>
+        int clearingform = 1;
 
         /// <summary>
         /// 已选择的消费明细项
@@ -284,43 +293,49 @@ namespace zsdxsy
             //明细项名称
             DevComponents.DotNetBar.LabelX lbl = new DevComponents.DotNetBar.LabelX();
             lbl.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            lbl.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold);
+            lbl.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
             lbl.Name = "lblSelect_" + selectText;
             lbl.Text = selectText;
             lbl.ForeColor = System.Drawing.Color.Red;
             lbl.AutoSize = true;
-            lbl.Location = new Point(20, itemsCount * 50 + 70);
+            lbl.Location = new Point(15, itemsCount * 40 + 60);
             gboxConsumeItems.Controls.Add(lbl);
 
             //减份数按钮 
             DevComponents.DotNetBar.ButtonX btnReduce = new DevComponents.DotNetBar.ButtonX();
-            btnReduce.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold);
+            btnReduce.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             btnReduce.Name = "btnReduce_" + selectText;
             btnReduce.Text = "-";
             btnReduce.AutoSize = false;
-            btnReduce.Size = new Size(50, 35);
+            btnReduce.Size = new Size(30, 30);
             btnReduce.Click += new EventHandler(btnCountChange_Click);
-            btnReduce.Location = new Point(230, itemsCount * 50 + 70);
+            btnReduce.Location = new Point(180, itemsCount * 40 + 55);
             gboxConsumeItems.Controls.Add(btnReduce);
 
             //份数文本框
-            DevComponents.DotNetBar.ButtonX btnCount = new DevComponents.DotNetBar.ButtonX();
-            btnCount.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold);
+            DevComponents.DotNetBar.Controls.TextBoxX btnCount = new DevComponents.DotNetBar.Controls.TextBoxX();
+            btnCount.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
+            btnCount.Border.Class = "TextBoxBorder";
+            btnCount.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            btnCount.DisabledBackColor = System.Drawing.Color.White;
+            btnCount.ForeColor = System.Drawing.Color.Black;
             btnCount.Name = "btnCount_" + selectText;
             btnCount.Text = "1";
+            btnCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             btnCount.AutoSize = false;
-            btnCount.Size = new Size(60, 35);
-            btnCount.Location = new Point(300, itemsCount * 50 + 70);
+            btnCount.Size = new Size(45, 40);
+            btnCount.Location = new Point(220, itemsCount * 40 + 55);
+            btnCount.KeyDown += new System.Windows.Forms.KeyEventHandler(btnCount_KeyDown);
             gboxConsumeItems.Controls.Add(btnCount);
 
             //加份数按钮
             DevComponents.DotNetBar.ButtonX btnAdd = new DevComponents.DotNetBar.ButtonX();
             btnAdd.Name = "btnAdd_" + selectText;
             btnAdd.Text = "+";
-            btn.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold);
+            btn.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             btnAdd.AutoSize = false;
-            btnAdd.Size = new Size(50, 35);
-            btnAdd.Location = new Point(380, itemsCount * 50 + 70);
+            btnAdd.Size = new Size(30, 30);
+            btnAdd.Location = new Point(270, itemsCount * 40 + 55);
             btnAdd.Click += new EventHandler(btnCountChange_Click);
             gboxConsumeItems.Controls.Add(btnAdd);
 
@@ -341,6 +356,37 @@ namespace zsdxsy
         }
 
         /// <summary>
+        /// 份数框输入后回车事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCount_KeyDown(object sender, KeyEventArgs e)
+        {
+            //如果是回车
+            if (e.KeyCode == Keys.Enter)
+            {
+                DevComponents.DotNetBar.Controls.TextBoxX txtCount = (DevComponents.DotNetBar.Controls.TextBoxX)sender;
+                string[] tempName = txtCount.Name.Split('_');
+                int iCount = 0;
+                Decimal total = 0;
+                if (txtCount.Text == "")
+                    txtCount.Text = "0";
+
+                //更新dicConsumeItems
+                if (dicConsumeItems.TryGetValue(tempName[1], out ConsumeDetail value))
+                {
+                    value.detailCount = Convert.ToUInt16(txtCount.Text);
+                }
+                //如果是快餐，自动计算总价
+                if (dinnerType == 1)
+                {
+                    total = sumItemsTotal();
+                }
+
+
+            }
+        }
+        /// <summary>
         /// 增加和减少份数按钮操作
         /// </summary>
         /// <param name="sender"></param>
@@ -353,7 +399,7 @@ namespace zsdxsy
             Decimal dPrice = 0;
             Decimal total = 0;
 
-            DevComponents.DotNetBar.ButtonX txtCount = (DevComponents.DotNetBar.ButtonX)gboxConsumeItems.Controls.Find("btnCount_" + tempName[1], false)[0];
+            DevComponents.DotNetBar.Controls.TextBoxX txtCount = (DevComponents.DotNetBar.Controls.TextBoxX)gboxConsumeItems.Controls.Find("btnCount_" + tempName[1], false)[0];
             if (tempName[0] == "btnAdd")
                 iCount = Convert.ToInt16(txtCount.Text) + 1;
             else
@@ -378,6 +424,16 @@ namespace zsdxsy
         }
 
         /// <summary>
+        /// 结算方式切换
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rbClearingform_Click(object sender, EventArgs e)
+        {
+            RadioButton but = (RadioButton)sender;
+            clearingform = Convert.ToInt16(but.Tag.ToString());
+        }
+        /// <summary>
         /// 取消按钮事件
         /// </summary>
         /// <param name="sender"></param>
@@ -387,10 +443,16 @@ namespace zsdxsy
             printConsumeItems("取消");
             delItemControlFromItemPanel();
         }
+
+        /// <summary>
+        /// 结算确定按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
             CashClearing();
-            delItemControlFromItemPanel();
+            //delItemControlFromItemPanel();
         }
 
         /// <summary>
@@ -406,6 +468,7 @@ namespace zsdxsy
                 CashClearing();
             }
         }
+
         /// <summary>
         /// 切换收银员账号
         /// </summary>
@@ -415,6 +478,7 @@ namespace zsdxsy
         {
             this.frmCash_Load(new frmCash(), e);
         }
+
         /// <summary>
         /// 退出收银系统
         /// </summary>
@@ -439,12 +503,13 @@ namespace zsdxsy
             string justDate = DateTime.Now.Date.ToString("yyyy-MM-dd");
             DateTime justTime = DateTime.Now;
 
-            DateTime endZhao = Convert.ToDateTime(justDate + " 09:00");
-            DateTime endWu = Convert.ToDateTime(justDate + " 13:00");
-            DateTime endWan = Convert.ToDateTime(justDate + " 19:00");
-            DateTime endYe = Convert.ToDateTime(justDate + " 22:00");
+            DateTime endZhao = Convert.ToDateTime(justDate + " 09:30");
+            DateTime endWu = Convert.ToDateTime(justDate + " 14:00");
+            DateTime endWan = Convert.ToDateTime(justDate + " 22:00");
+            DateTime endYe = Convert.ToDateTime(justDate + " 23:00");
             if (justTime < endZhao)
             {
+                mealType = 1;
                 if (listZhao != null && listZhao.Count > 0)
                 {
                     createSelectButton(listZhao, plSelectItems);
@@ -454,6 +519,7 @@ namespace zsdxsy
             {
                 if (justTime < endWu)
                 {
+                    mealType = 2;
                     if (listWu != null && listWu.Count > 0)
                     {
                         createSelectButton(listWu, plSelectItems);
@@ -463,6 +529,7 @@ namespace zsdxsy
                 {
                     if (justTime < endWan)
                     {
+                        mealType = 3;
                         if (listWan != null && listWan.Count > 0)
                         {
                             createSelectButton(listWan, plSelectItems);
@@ -470,6 +537,7 @@ namespace zsdxsy
                     }
                     else
                     {
+                        mealType = 4;
                         if (listYe != null && listYe.Count > 0)
                         {
                             createSelectButton(listYe, plSelectItems);
@@ -479,6 +547,7 @@ namespace zsdxsy
 
             }
         }
+
         /// <summary>
         /// 检查是否有未结算的小票
         /// </summary>
@@ -530,6 +599,7 @@ namespace zsdxsy
 
             return sb.ToString();
         }
+
         /// <summary>
         /// 动态生成可选择的快餐或菜品
         /// </summary>
@@ -551,8 +621,9 @@ namespace zsdxsy
                 btn.Text = valueItem.valueName;
                 btn.Tag = valueItem.valuePrice.ToString();
                 btn.AutoSize = true;
-                btn.Size = new Size(150, 70);
-                btn.Location = new Point(15 + 400 * yu, 25 + 100 * mo);
+                btn.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                btn.Size = new Size(100, 45);
+                btn.Location = new Point(15 + 300 * yu, 15 + 55 * mo);
                 btn.Click += new EventHandler(btnSelectItem_Click);
                 addPanel.Controls.Add(btn);
                 i++;
@@ -595,7 +666,7 @@ namespace zsdxsy
                 if (frmInfo.ShowDialog() == DialogResult.OK)
                 {
                     txtRealPay.Focus();
-                    return;
+                    return ;
                 }
             }
             //如果是快餐，重新计算总额
@@ -611,8 +682,8 @@ namespace zsdxsy
             Decimal needPay = Convert.ToDecimal(txtNeedPay.Text);
             Decimal realPay = Convert.ToDecimal(txtRealPay.Text);
             Decimal payChange = realPay - needPay;
-            //如果是接待快餐或接待围餐,不需要输入实付金额
-            if (dinnerType == 3 || eatType == 3)
+            //如果是接待快餐、接待围餐或挂账,不需要输入实付金额
+            if (dinnerType == 3 || eatType == 3 || clearingform==3)
             {
                 payChange = 0;
                 realPay = 0;
@@ -659,6 +730,11 @@ namespace zsdxsy
             string printDir = Application.StartupPath + @"\items\";
             string info = string.Empty;
             string consumer = "个人";
+            string clearingformName = "现金";
+            if (clearingform == 2)
+                clearingformName = "刷卡";
+            else if (clearingform == 3)
+                clearingformName = "挂账";
 
             info = "=====================================================================\r\n";
             info += "交易时间：" + dt + "\r\n";
@@ -689,6 +765,7 @@ namespace zsdxsy
             info += "             合计：" + needPay + "\r\n";
             info += "             实收：" + realPay + "\r\n";
             info += "             找零：" + chagePay + "\r\n";
+            info += "结算方式:" + clearingformName + "\r\n";
             info += "操 作 人：" + opertioner + "\r\n";
             info += "交易状态：" + state + "\r\n";
 
@@ -715,6 +792,8 @@ namespace zsdxsy
             bill.changePay = Convert.ToDecimal(chagePay);
             bill.opertioner = opertioner;
             bill.consumeState = state;
+            bill.clearingForm = clearingform;
+            bill.mealType = mealType;
 
             string consumeBill = JsonBuilder.toJson(bill);
             string billDetail = JsonBuilder.toJson(billItems);
@@ -733,7 +812,7 @@ namespace zsdxsy
             Dictionary<string, ConsumeDetail>.ValueCollection valueColl = dicConsumeItems.Values;
             foreach (ConsumeDetail cd in valueColl)
             {
-                DevComponents.DotNetBar.ButtonX txtCount = (DevComponents.DotNetBar.ButtonX)gboxConsumeItems.Controls.Find("btnCount_" + cd.detailName, false)[0];
+                DevComponents.DotNetBar.Controls.TextBoxX txtCount = (DevComponents.DotNetBar.Controls.TextBoxX)gboxConsumeItems.Controls.Find("btnCount_" + cd.detailName, false)[0];
                 gboxConsumeItems.Controls.Remove(txtCount);
 
                 DevComponents.DotNetBar.LabelX lblItemName = (DevComponents.DotNetBar.LabelX)gboxConsumeItems.Controls.Find("lblSelect_" + cd.detailName, false)[0];
