@@ -43,9 +43,9 @@
             this.plDianZhu = new System.Windows.Forms.TabPage();
             this.plDianJiu = new System.Windows.Forms.TabPage();
             this.plDianOther = new System.Windows.Forms.TabPage();
-            this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.plDianAdd = new DevComponents.DotNetBar.PanelEx();
+            this.btn_DianAddNew = new DevComponents.DotNetBar.ButtonX();
+            this.txtDianAddNew = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbiDian = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
             this.plSelectItems = new DevComponents.DotNetBar.PanelEx();
@@ -63,9 +63,9 @@
             this.plWeiZhu = new System.Windows.Forms.TabPage();
             this.plWeiJiu = new System.Windows.Forms.TabPage();
             this.plWeiOther = new System.Windows.Forms.TabPage();
-            this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.plWeiAdd = new DevComponents.DotNetBar.PanelEx();
+            this.btn_WeiAddNew = new DevComponents.DotNetBar.ButtonX();
+            this.txtWeiAddNew = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbiWei = new DevComponents.DotNetBar.TabItem(this.components);
             this.gboxVisitor = new System.Windows.Forms.GroupBox();
             this.txtVisitor = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -97,12 +97,12 @@
             this.tcDinnerType.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             this.tcDian.SuspendLayout();
-            this.panelEx5.SuspendLayout();
+            this.plDianAdd.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
             this.panelEx3.SuspendLayout();
             this.tabControlPanel3.SuspendLayout();
             this.tcWei.SuspendLayout();
-            this.panelEx4.SuspendLayout();
+            this.plWeiAdd.SuspendLayout();
             this.gboxVisitor.SuspendLayout();
             this.gboxConsumeItems.SuspendLayout();
             this.gboxCash.SuspendLayout();
@@ -176,9 +176,9 @@
             this.tcDinnerType.BackColor = System.Drawing.Color.White;
             this.tcDinnerType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tcDinnerType.CanReorderTabs = true;
-            this.tcDinnerType.Controls.Add(this.tabControlPanel1);
-            this.tcDinnerType.Controls.Add(this.tabControlPanel2);
             this.tcDinnerType.Controls.Add(this.tabControlPanel3);
+            this.tcDinnerType.Controls.Add(this.tabControlPanel2);
+            this.tcDinnerType.Controls.Add(this.tabControlPanel1);
             this.tcDinnerType.Font = new System.Drawing.Font("宋体", 26.25F);
             this.tcDinnerType.ForeColor = System.Drawing.Color.Black;
             this.tcDinnerType.Location = new System.Drawing.Point(0, 0);
@@ -196,7 +196,7 @@
             // tabControlPanel2
             // 
             this.tabControlPanel2.Controls.Add(this.tcDian);
-            this.tabControlPanel2.Controls.Add(this.panelEx5);
+            this.tabControlPanel2.Controls.Add(this.plDianAdd);
             this.tabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty;
             this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPanel2.Location = new System.Drawing.Point(0, 55);
@@ -313,55 +313,56 @@
             this.plDianOther.TabIndex = 5;
             this.plDianOther.Text = "其 它";
             // 
-            // panelEx5
+            // plDianAdd
             // 
-            this.panelEx5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx5.Controls.Add(this.buttonX2);
-            this.panelEx5.Controls.Add(this.textBoxX2);
-            this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx5.Location = new System.Drawing.Point(1, 315);
-            this.panelEx5.Name = "panelEx5";
-            this.panelEx5.Size = new System.Drawing.Size(1295, 83);
-            this.panelEx5.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx5.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.panelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx5.Style.GradientAngle = 90;
-            this.panelEx5.TabIndex = 4;
+            this.plDianAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianAdd.CanvasColor = System.Drawing.SystemColors.Control;
+            this.plDianAdd.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.plDianAdd.Controls.Add(this.btn_DianAddNew);
+            this.plDianAdd.Controls.Add(this.txtDianAddNew);
+            this.plDianAdd.DisabledBackColor = System.Drawing.Color.Empty;
+            this.plDianAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plDianAdd.Location = new System.Drawing.Point(1, 315);
+            this.plDianAdd.Name = "plDianAdd";
+            this.plDianAdd.Size = new System.Drawing.Size(1295, 83);
+            this.plDianAdd.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.plDianAdd.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.plDianAdd.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
+            this.plDianAdd.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.plDianAdd.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.plDianAdd.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.plDianAdd.Style.GradientAngle = 90;
+            this.plDianAdd.TabIndex = 4;
             // 
-            // buttonX2
+            // btn_DianAddNew
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
-            this.buttonX2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonX2.Image = global::zsdxsy.Properties.Resources.save_32;
-            this.buttonX2.Location = new System.Drawing.Point(499, 22);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(149, 47);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
-            this.buttonX2.TabIndex = 7;
-            this.buttonX2.Text = "添加";
+            this.btn_DianAddNew.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_DianAddNew.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
+            this.btn_DianAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DianAddNew.Image = global::zsdxsy.Properties.Resources.save_32;
+            this.btn_DianAddNew.Location = new System.Drawing.Point(499, 22);
+            this.btn_DianAddNew.Name = "btn_DianAddNew";
+            this.btn_DianAddNew.Size = new System.Drawing.Size(149, 47);
+            this.btn_DianAddNew.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
+            this.btn_DianAddNew.TabIndex = 7;
+            this.btn_DianAddNew.Text = "添加";
+            this.btn_DianAddNew.Click += new System.EventHandler(this.buttonX2_Click);
             // 
-            // textBoxX2
+            // txtDianAddNew
             // 
-            this.textBoxX2.BackColor = System.Drawing.Color.Aqua;
+            this.txtDianAddNew.BackColor = System.Drawing.Color.Aqua;
             // 
             // 
             // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.DisabledBackColor = System.Drawing.Color.White;
-            this.textBoxX2.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX2.Location = new System.Drawing.Point(16, 22);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.PreventEnterBeep = true;
-            this.textBoxX2.Size = new System.Drawing.Size(456, 47);
-            this.textBoxX2.TabIndex = 5;
+            this.txtDianAddNew.Border.Class = "TextBoxBorder";
+            this.txtDianAddNew.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtDianAddNew.DisabledBackColor = System.Drawing.Color.White;
+            this.txtDianAddNew.ForeColor = System.Drawing.Color.Black;
+            this.txtDianAddNew.Location = new System.Drawing.Point(16, 22);
+            this.txtDianAddNew.Name = "txtDianAddNew";
+            this.txtDianAddNew.PreventEnterBeep = true;
+            this.txtDianAddNew.Size = new System.Drawing.Size(456, 47);
+            this.txtDianAddNew.TabIndex = 5;
             // 
             // tbiDian
             // 
@@ -499,7 +500,7 @@
             // tabControlPanel3
             // 
             this.tabControlPanel3.Controls.Add(this.tcWei);
-            this.tabControlPanel3.Controls.Add(this.panelEx4);
+            this.tabControlPanel3.Controls.Add(this.plWeiAdd);
             this.tabControlPanel3.DisabledBackColor = System.Drawing.Color.Empty;
             this.tabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPanel3.Location = new System.Drawing.Point(0, 55);
@@ -617,55 +618,56 @@
             this.plWeiOther.TabIndex = 5;
             this.plWeiOther.Text = "其 它";
             // 
-            // panelEx4
+            // plWeiAdd
             // 
-            this.panelEx4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelEx4.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx4.Controls.Add(this.buttonX1);
-            this.panelEx4.Controls.Add(this.textBoxX1);
-            this.panelEx4.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx4.Location = new System.Drawing.Point(1, 315);
-            this.panelEx4.Name = "panelEx4";
-            this.panelEx4.Size = new System.Drawing.Size(1295, 83);
-            this.panelEx4.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx4.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.panelEx4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx4.Style.GradientAngle = 90;
-            this.panelEx4.TabIndex = 0;
+            this.plWeiAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plWeiAdd.CanvasColor = System.Drawing.SystemColors.Control;
+            this.plWeiAdd.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.plWeiAdd.Controls.Add(this.btn_WeiAddNew);
+            this.plWeiAdd.Controls.Add(this.txtWeiAddNew);
+            this.plWeiAdd.DisabledBackColor = System.Drawing.Color.Empty;
+            this.plWeiAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plWeiAdd.Location = new System.Drawing.Point(1, 315);
+            this.plWeiAdd.Name = "plWeiAdd";
+            this.plWeiAdd.Size = new System.Drawing.Size(1295, 83);
+            this.plWeiAdd.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.plWeiAdd.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.plWeiAdd.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
+            this.plWeiAdd.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.plWeiAdd.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.plWeiAdd.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.plWeiAdd.Style.GradientAngle = 90;
+            this.plWeiAdd.TabIndex = 0;
             // 
-            // buttonX1
+            // btn_WeiAddNew
             // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
-            this.buttonX1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonX1.Image = global::zsdxsy.Properties.Resources.save_32;
-            this.buttonX1.Location = new System.Drawing.Point(552, 22);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(149, 47);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
-            this.buttonX1.TabIndex = 7;
-            this.buttonX1.Text = "添加";
+            this.btn_WeiAddNew.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_WeiAddNew.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
+            this.btn_WeiAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_WeiAddNew.Image = global::zsdxsy.Properties.Resources.save_32;
+            this.btn_WeiAddNew.Location = new System.Drawing.Point(525, 22);
+            this.btn_WeiAddNew.Name = "btn_WeiAddNew";
+            this.btn_WeiAddNew.Size = new System.Drawing.Size(149, 47);
+            this.btn_WeiAddNew.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
+            this.btn_WeiAddNew.TabIndex = 7;
+            this.btn_WeiAddNew.Text = "添加";
+            this.btn_WeiAddNew.Click += new System.EventHandler(this.buttonX2_Click);
             // 
-            // textBoxX1
+            // txtWeiAddNew
             // 
-            this.textBoxX1.BackColor = System.Drawing.Color.Aqua;
+            this.txtWeiAddNew.BackColor = System.Drawing.Color.Aqua;
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.DisabledBackColor = System.Drawing.Color.White;
-            this.textBoxX1.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX1.Location = new System.Drawing.Point(16, 22);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.PreventEnterBeep = true;
-            this.textBoxX1.Size = new System.Drawing.Size(526, 47);
-            this.textBoxX1.TabIndex = 5;
+            this.txtWeiAddNew.Border.Class = "TextBoxBorder";
+            this.txtWeiAddNew.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWeiAddNew.DisabledBackColor = System.Drawing.Color.White;
+            this.txtWeiAddNew.ForeColor = System.Drawing.Color.Black;
+            this.txtWeiAddNew.Location = new System.Drawing.Point(16, 22);
+            this.txtWeiAddNew.Name = "txtWeiAddNew";
+            this.txtWeiAddNew.PreventEnterBeep = true;
+            this.txtWeiAddNew.Size = new System.Drawing.Size(499, 47);
+            this.txtWeiAddNew.TabIndex = 5;
             // 
             // tbiWei
             // 
@@ -1082,12 +1084,12 @@
             this.tcDinnerType.ResumeLayout(false);
             this.tabControlPanel2.ResumeLayout(false);
             this.tcDian.ResumeLayout(false);
-            this.panelEx5.ResumeLayout(false);
+            this.plDianAdd.ResumeLayout(false);
             this.tabControlPanel1.ResumeLayout(false);
             this.panelEx3.ResumeLayout(false);
             this.tabControlPanel3.ResumeLayout(false);
             this.tcWei.ResumeLayout(false);
-            this.panelEx4.ResumeLayout(false);
+            this.plWeiAdd.ResumeLayout(false);
             this.gboxVisitor.ResumeLayout(false);
             this.gboxConsumeItems.ResumeLayout(false);
             this.gboxConsumeItems.PerformLayout();
@@ -1120,12 +1122,12 @@
         private DevComponents.DotNetBar.ButtonX btn招待;
         private DevComponents.DotNetBar.ButtonX btn加班;
         private DevComponents.DotNetBar.ButtonX btn_普通;
-        private DevComponents.DotNetBar.PanelEx panelEx4;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
-        private DevComponents.DotNetBar.PanelEx panelEx5;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
+        private DevComponents.DotNetBar.PanelEx plWeiAdd;
+        private DevComponents.DotNetBar.ButtonX btn_WeiAddNew;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtWeiAddNew;
+        private DevComponents.DotNetBar.PanelEx plDianAdd;
+        private DevComponents.DotNetBar.ButtonX btn_DianAddNew;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtDianAddNew;
         private DevComponents.DotNetBar.PanelEx plSelectItems;
         private System.Windows.Forms.GroupBox gboxConsumeItems;
         private DevComponents.DotNetBar.LabelX lblConsumeType;

@@ -285,11 +285,30 @@ namespace zsdxsy
         private void btnSelectItem_Click(object sender, EventArgs e)
         {
             Decimal total = 0;
+            Decimal selectPrice = 0;
+            string selectText = string.Empty;
             int itemsCount = dicConsumeItems.Count;  //已添加的明细项个数
-            DevComponents.DotNetBar.ButtonX btn = (DevComponents.DotNetBar.ButtonX)sender;
-            string selectText = btn.Text;
-            Decimal selectPrice = Convert.ToDecimal(btn.Tag.ToString());
 
+            //增加新菜品的处理
+            DevComponents.DotNetBar.ButtonX btn = (DevComponents.DotNetBar.ButtonX)sender;
+            if (btn.Name == "btn_DianAddNew")
+            {
+                selectText = txtDianAddNew.Text;
+                selectPrice = 0;
+            }
+            else
+            {
+                if (btn.Name == "btn_WeiAddNew")
+                {
+                    selectText = txtWeiAddNew.Text;
+                    selectPrice = 0;
+                }
+                else
+                {
+                    selectText = btn.Text;
+                    selectPrice = Convert.ToDecimal(btn.Tag.ToString());
+                }
+            }
             //明细项名称
             DevComponents.DotNetBar.LabelX lbl = new DevComponents.DotNetBar.LabelX();
             lbl.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
@@ -351,7 +370,10 @@ namespace zsdxsy
             {
                 total = sumItemsTotal();
             }
-            btn.Enabled = false;
+            if (btn.Name != "btn_DianAddNew" && btn.Name != "btn_WeiAddNew")
+                btn.Enabled = false;
+            txtDianAddNew.Text = "";
+            txtWeiAddNew.Text = "";
 
         }
 
@@ -433,6 +455,7 @@ namespace zsdxsy
             RadioButton but = (RadioButton)sender;
             clearingform = Convert.ToInt16(but.Tag.ToString());
         }
+
         /// <summary>
         /// 取消按钮事件
         /// </summary>
@@ -490,6 +513,40 @@ namespace zsdxsy
             Application.Exit();
         }
 
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            DevComponents.DotNetBar.ButtonX btn = (DevComponents.DotNetBar.ButtonX)sender;
+            DevComponents.DotNetBar.Controls.TextBoxX txt = null;
+            string[] tempName = btn.Name.Split('_');
+            string info = string.Empty;
+            string InfoType = string.Empty;
+            if (plDianAdd.Controls.ContainsKey("txt" + tempName[1]))
+            {
+                txt = (DevComponents.DotNetBar.Controls.TextBoxX)plDianAdd.Controls.Find("txt" + tempName[1], false)[0];
+            }
+            else
+            {
+                txt = (DevComponents.DotNetBar.Controls.TextBoxX)plWeiAdd.Controls.Find("txt" + tempName[1], false)[0];
+            }
+            if (txt.Text == "")
+            {
+                info = "您好：\n";
+                info += "    请输入要添加的菜品名称\n\n";
+
+                InfoType = "OK";
+                frmInfo frmInfo = new frmInfo(info, "添加新菜品提醒", InfoType);
+                if (frmInfo.ShowDialog() == DialogResult.OK)
+                {
+                    //txtRealPay.Focus();
+                    return;
+                }
+            }
+            else
+            {
+                btnSelectItem_Click(sender, e);
+            }
+        }
         #region 非事件处理函数
         /// <summary>
         /// 根据时间生成可选的快餐按钮
@@ -666,7 +723,7 @@ namespace zsdxsy
                 if (frmInfo.ShowDialog() == DialogResult.OK)
                 {
                     txtRealPay.Focus();
-                    return ;
+                    return;
                 }
             }
             //如果是快餐，重新计算总额
@@ -683,7 +740,7 @@ namespace zsdxsy
             Decimal realPay = Convert.ToDecimal(txtRealPay.Text);
             Decimal payChange = realPay - needPay;
             //如果是接待快餐、接待围餐或挂账,不需要输入实付金额
-            if (dinnerType == 3 || eatType == 3 || clearingform==3)
+            if (dinnerType == 3 || eatType == 3 || clearingform == 3)
             {
                 payChange = 0;
                 realPay = 0;
@@ -894,7 +951,8 @@ namespace zsdxsy
                         }
                         break;
                 }
-                btnMeal.Enabled = true;
+                if (btnMeal != null)
+                    btnMeal.Enabled = true;
             }
             dicConsumeItems.Clear();
             txtNeedPay.Text = "0";

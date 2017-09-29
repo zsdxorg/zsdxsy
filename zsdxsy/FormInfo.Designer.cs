@@ -57,7 +57,7 @@
             this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOk.Font = new System.Drawing.Font("宋体", 21.75F);
             this.btnOk.Image = global::zsdxsy.Properties.Resources.Apply;
-            this.btnOk.Location = new System.Drawing.Point(249, 331);
+            this.btnOk.Location = new System.Drawing.Point(272, 331);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(149, 69);
             this.btnOk.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
@@ -72,7 +72,7 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Font = new System.Drawing.Font("宋体", 21.75F);
             this.btnCancel.Image = global::zsdxsy.Properties.Resources.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(454, 331);
+            this.btnCancel.Location = new System.Drawing.Point(487, 331);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(149, 69);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
@@ -86,7 +86,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(771, 498);
+            this.ClientSize = new System.Drawing.Size(764, 440);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblInfo);
