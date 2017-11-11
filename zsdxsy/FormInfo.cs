@@ -26,6 +26,10 @@ namespace zsdxsy
                 btnCancel.Visible = false;
             else
                 btnCancel.Visible = true;
+            if (infotype == "OK|CANCEL") {
+                btnCancel.Visible = true;
+                btnOk.Visible = true;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

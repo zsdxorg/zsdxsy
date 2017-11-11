@@ -35,18 +35,6 @@
             this.btnChangeCount = new DevComponents.DotNetBar.ButtonX();
             this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.tcDinnerType = new DevComponents.DotNetBar.TabControl();
-            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
-            this.tcDian = new System.Windows.Forms.TabControl();
-            this.plDianHun = new System.Windows.Forms.TabPage();
-            this.plDianShu = new System.Windows.Forms.TabPage();
-            this.plDianTang = new System.Windows.Forms.TabPage();
-            this.plDianZhu = new System.Windows.Forms.TabPage();
-            this.plDianJiu = new System.Windows.Forms.TabPage();
-            this.plDianOther = new System.Windows.Forms.TabPage();
-            this.plDianAdd = new DevComponents.DotNetBar.PanelEx();
-            this.btn_DianAddNew = new DevComponents.DotNetBar.ButtonX();
-            this.txtDianAddNew = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tbiDian = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
             this.plSelectItems = new DevComponents.DotNetBar.PanelEx();
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
@@ -67,12 +55,26 @@
             this.btn_WeiAddNew = new DevComponents.DotNetBar.ButtonX();
             this.txtWeiAddNew = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tbiWei = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+            this.tcDian = new System.Windows.Forms.TabControl();
+            this.plDianHun = new System.Windows.Forms.TabPage();
+            this.plDianShu = new System.Windows.Forms.TabPage();
+            this.plDianTang = new System.Windows.Forms.TabPage();
+            this.plDianZhu = new System.Windows.Forms.TabPage();
+            this.plDianJiu = new System.Windows.Forms.TabPage();
+            this.plDianOther = new System.Windows.Forms.TabPage();
+            this.plDianAdd = new DevComponents.DotNetBar.PanelEx();
+            this.btn_DianAddNew = new DevComponents.DotNetBar.ButtonX();
+            this.txtDianAddNew = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.tbiDian = new DevComponents.DotNetBar.TabItem(this.components);
             this.gboxVisitor = new System.Windows.Forms.GroupBox();
             this.txtVisitor = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtReception = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lblVisitor = new DevComponents.DotNetBar.LabelX();
             this.lblReception = new DevComponents.DotNetBar.LabelX();
             this.gboxConsumeItems = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblConsumeType = new DevComponents.DotNetBar.LabelX();
             this.gboxCash = new System.Windows.Forms.GroupBox();
             this.plJieFang = new DevComponents.DotNetBar.PanelEx();
@@ -92,19 +94,22 @@
             this.txtNeedPay = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lblNeedPay = new DevComponents.DotNetBar.LabelX();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.rbXiaoNei = new System.Windows.Forms.RadioButton();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcDinnerType)).BeginInit();
             this.tcDinnerType.SuspendLayout();
-            this.tabControlPanel2.SuspendLayout();
-            this.tcDian.SuspendLayout();
-            this.plDianAdd.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
             this.panelEx3.SuspendLayout();
             this.tabControlPanel3.SuspendLayout();
             this.tcWei.SuspendLayout();
             this.plWeiAdd.SuspendLayout();
+            this.tabControlPanel2.SuspendLayout();
+            this.tcDian.SuspendLayout();
+            this.plDianAdd.SuspendLayout();
             this.gboxVisitor.SuspendLayout();
             this.gboxConsumeItems.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.gboxCash.SuspendLayout();
             this.plJieFang.SuspendLayout();
             this.panelEx2.SuspendLayout();
@@ -176,9 +181,9 @@
             this.tcDinnerType.BackColor = System.Drawing.Color.White;
             this.tcDinnerType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tcDinnerType.CanReorderTabs = true;
+            this.tcDinnerType.Controls.Add(this.tabControlPanel1);
             this.tcDinnerType.Controls.Add(this.tabControlPanel3);
             this.tcDinnerType.Controls.Add(this.tabControlPanel2);
-            this.tcDinnerType.Controls.Add(this.tabControlPanel1);
             this.tcDinnerType.Font = new System.Drawing.Font("宋体", 26.25F);
             this.tcDinnerType.ForeColor = System.Drawing.Color.Black;
             this.tcDinnerType.Location = new System.Drawing.Point(0, 0);
@@ -192,184 +197,6 @@
             this.tcDinnerType.Tabs.Add(this.tbiDian);
             this.tcDinnerType.Tabs.Add(this.tbiWei);
             this.tcDinnerType.Text = "tabControl1";
-            // 
-            // tabControlPanel2
-            // 
-            this.tabControlPanel2.Controls.Add(this.tcDian);
-            this.tabControlPanel2.Controls.Add(this.plDianAdd);
-            this.tabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty;
-            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Location = new System.Drawing.Point(0, 55);
-            this.tabControlPanel2.Name = "tabControlPanel2";
-            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(1297, 399);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel2.Style.GradientAngle = 90;
-            this.tabControlPanel2.TabIndex = 5;
-            this.tabControlPanel2.TabItem = this.tbiDian;
-            // 
-            // tcDian
-            // 
-            this.tcDian.Controls.Add(this.plDianHun);
-            this.tcDian.Controls.Add(this.plDianShu);
-            this.tcDian.Controls.Add(this.plDianTang);
-            this.tcDian.Controls.Add(this.plDianZhu);
-            this.tcDian.Controls.Add(this.plDianJiu);
-            this.tcDian.Controls.Add(this.plDianOther);
-            this.tcDian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcDian.Location = new System.Drawing.Point(1, 1);
-            this.tcDian.Name = "tcDian";
-            this.tcDian.SelectedIndex = 0;
-            this.tcDian.Size = new System.Drawing.Size(1295, 314);
-            this.tcDian.TabIndex = 12;
-            // 
-            // plDianHun
-            // 
-            this.plDianHun.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.plDianHun.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
-            this.plDianHun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianHun.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.plDianHun.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.plDianHun.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.plDianHun.Location = new System.Drawing.Point(4, 45);
-            this.plDianHun.Name = "plDianHun";
-            this.plDianHun.Padding = new System.Windows.Forms.Padding(3);
-            this.plDianHun.Size = new System.Drawing.Size(1287, 265);
-            this.plDianHun.TabIndex = 0;
-            this.plDianHun.Text = "荦 菜";
-            // 
-            // plDianShu
-            // 
-            this.plDianShu.BackColor = System.Drawing.Color.SkyBlue;
-            this.plDianShu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
-            this.plDianShu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianShu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.plDianShu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.plDianShu.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.plDianShu.Location = new System.Drawing.Point(4, 45);
-            this.plDianShu.Name = "plDianShu";
-            this.plDianShu.Padding = new System.Windows.Forms.Padding(3);
-            this.plDianShu.Size = new System.Drawing.Size(1287, 320);
-            this.plDianShu.TabIndex = 1;
-            this.plDianShu.Text = "素 菜";
-            // 
-            // plDianTang
-            // 
-            this.plDianTang.BackColor = System.Drawing.Color.SkyBlue;
-            this.plDianTang.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
-            this.plDianTang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianTang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.plDianTang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.plDianTang.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.plDianTang.Location = new System.Drawing.Point(4, 45);
-            this.plDianTang.Name = "plDianTang";
-            this.plDianTang.Size = new System.Drawing.Size(1287, 320);
-            this.plDianTang.TabIndex = 2;
-            this.plDianTang.Text = "汤 类";
-            // 
-            // plDianZhu
-            // 
-            this.plDianZhu.BackColor = System.Drawing.Color.SkyBlue;
-            this.plDianZhu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
-            this.plDianZhu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianZhu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.plDianZhu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.plDianZhu.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.plDianZhu.Location = new System.Drawing.Point(4, 45);
-            this.plDianZhu.Name = "plDianZhu";
-            this.plDianZhu.Size = new System.Drawing.Size(1287, 320);
-            this.plDianZhu.TabIndex = 3;
-            this.plDianZhu.Text = "主 食";
-            // 
-            // plDianJiu
-            // 
-            this.plDianJiu.BackColor = System.Drawing.Color.SkyBlue;
-            this.plDianJiu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
-            this.plDianJiu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianJiu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.plDianJiu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.plDianJiu.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.plDianJiu.Location = new System.Drawing.Point(4, 45);
-            this.plDianJiu.Name = "plDianJiu";
-            this.plDianJiu.Size = new System.Drawing.Size(1287, 320);
-            this.plDianJiu.TabIndex = 4;
-            this.plDianJiu.Text = "酒 水";
-            // 
-            // plDianOther
-            // 
-            this.plDianOther.BackColor = System.Drawing.Color.SkyBlue;
-            this.plDianOther.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
-            this.plDianOther.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianOther.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.plDianOther.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.plDianOther.Location = new System.Drawing.Point(4, 45);
-            this.plDianOther.Name = "plDianOther";
-            this.plDianOther.Size = new System.Drawing.Size(1287, 320);
-            this.plDianOther.TabIndex = 5;
-            this.plDianOther.Text = "其 它";
-            // 
-            // plDianAdd
-            // 
-            this.plDianAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.plDianAdd.CanvasColor = System.Drawing.SystemColors.Control;
-            this.plDianAdd.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.plDianAdd.Controls.Add(this.btn_DianAddNew);
-            this.plDianAdd.Controls.Add(this.txtDianAddNew);
-            this.plDianAdd.DisabledBackColor = System.Drawing.Color.Empty;
-            this.plDianAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plDianAdd.Location = new System.Drawing.Point(1, 315);
-            this.plDianAdd.Name = "plDianAdd";
-            this.plDianAdd.Size = new System.Drawing.Size(1295, 83);
-            this.plDianAdd.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.plDianAdd.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.plDianAdd.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
-            this.plDianAdd.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.plDianAdd.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.plDianAdd.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.plDianAdd.Style.GradientAngle = 90;
-            this.plDianAdd.TabIndex = 4;
-            // 
-            // btn_DianAddNew
-            // 
-            this.btn_DianAddNew.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_DianAddNew.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
-            this.btn_DianAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DianAddNew.Image = global::zsdxsy.Properties.Resources.save_32;
-            this.btn_DianAddNew.Location = new System.Drawing.Point(499, 22);
-            this.btn_DianAddNew.Name = "btn_DianAddNew";
-            this.btn_DianAddNew.Size = new System.Drawing.Size(149, 47);
-            this.btn_DianAddNew.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
-            this.btn_DianAddNew.TabIndex = 7;
-            this.btn_DianAddNew.Text = "添加";
-            this.btn_DianAddNew.Click += new System.EventHandler(this.buttonX2_Click);
-            // 
-            // txtDianAddNew
-            // 
-            this.txtDianAddNew.BackColor = System.Drawing.Color.Aqua;
-            // 
-            // 
-            // 
-            this.txtDianAddNew.Border.Class = "TextBoxBorder";
-            this.txtDianAddNew.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDianAddNew.DisabledBackColor = System.Drawing.Color.White;
-            this.txtDianAddNew.ForeColor = System.Drawing.Color.Black;
-            this.txtDianAddNew.Location = new System.Drawing.Point(16, 22);
-            this.txtDianAddNew.Name = "txtDianAddNew";
-            this.txtDianAddNew.PreventEnterBeep = true;
-            this.txtDianAddNew.Size = new System.Drawing.Size(456, 47);
-            this.txtDianAddNew.TabIndex = 5;
-            // 
-            // tbiDian
-            // 
-            this.tbiDian.AttachedControl = this.tabControlPanel2;
-            this.tbiDian.Name = "tbiDian";
-            this.tbiDian.Text = "点 餐";
-            this.tbiDian.Click += new System.EventHandler(this.tbiDian_Click);
             // 
             // tabControlPanel1
             // 
@@ -393,6 +220,7 @@
             // 
             // plSelectItems
             // 
+            this.plSelectItems.AutoScroll = true;
             this.plSelectItems.CanvasColor = System.Drawing.SystemColors.Control;
             this.plSelectItems.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.plSelectItems.DisabledBackColor = System.Drawing.Color.Empty;
@@ -676,6 +504,184 @@
             this.tbiWei.Text = "围 餐";
             this.tbiWei.Click += new System.EventHandler(this.tbiWei_Click);
             // 
+            // tabControlPanel2
+            // 
+            this.tabControlPanel2.Controls.Add(this.tcDian);
+            this.tabControlPanel2.Controls.Add(this.plDianAdd);
+            this.tabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel2.Location = new System.Drawing.Point(0, 55);
+            this.tabControlPanel2.Name = "tabControlPanel2";
+            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel2.Size = new System.Drawing.Size(1297, 399);
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel2.Style.GradientAngle = 90;
+            this.tabControlPanel2.TabIndex = 5;
+            this.tabControlPanel2.TabItem = this.tbiDian;
+            // 
+            // tcDian
+            // 
+            this.tcDian.Controls.Add(this.plDianHun);
+            this.tcDian.Controls.Add(this.plDianShu);
+            this.tcDian.Controls.Add(this.plDianTang);
+            this.tcDian.Controls.Add(this.plDianZhu);
+            this.tcDian.Controls.Add(this.plDianJiu);
+            this.tcDian.Controls.Add(this.plDianOther);
+            this.tcDian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcDian.Location = new System.Drawing.Point(1, 1);
+            this.tcDian.Name = "tcDian";
+            this.tcDian.SelectedIndex = 0;
+            this.tcDian.Size = new System.Drawing.Size(1295, 314);
+            this.tcDian.TabIndex = 12;
+            // 
+            // plDianHun
+            // 
+            this.plDianHun.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.plDianHun.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianHun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianHun.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianHun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianHun.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plDianHun.Location = new System.Drawing.Point(4, 45);
+            this.plDianHun.Name = "plDianHun";
+            this.plDianHun.Padding = new System.Windows.Forms.Padding(3);
+            this.plDianHun.Size = new System.Drawing.Size(1287, 265);
+            this.plDianHun.TabIndex = 0;
+            this.plDianHun.Text = "荦 菜";
+            // 
+            // plDianShu
+            // 
+            this.plDianShu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianShu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianShu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianShu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianShu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianShu.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plDianShu.Location = new System.Drawing.Point(4, 45);
+            this.plDianShu.Name = "plDianShu";
+            this.plDianShu.Padding = new System.Windows.Forms.Padding(3);
+            this.plDianShu.Size = new System.Drawing.Size(1287, 320);
+            this.plDianShu.TabIndex = 1;
+            this.plDianShu.Text = "素 菜";
+            // 
+            // plDianTang
+            // 
+            this.plDianTang.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianTang.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianTang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianTang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianTang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianTang.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plDianTang.Location = new System.Drawing.Point(4, 45);
+            this.plDianTang.Name = "plDianTang";
+            this.plDianTang.Size = new System.Drawing.Size(1287, 320);
+            this.plDianTang.TabIndex = 2;
+            this.plDianTang.Text = "汤 类";
+            // 
+            // plDianZhu
+            // 
+            this.plDianZhu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianZhu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianZhu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianZhu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianZhu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianZhu.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plDianZhu.Location = new System.Drawing.Point(4, 45);
+            this.plDianZhu.Name = "plDianZhu";
+            this.plDianZhu.Size = new System.Drawing.Size(1287, 320);
+            this.plDianZhu.TabIndex = 3;
+            this.plDianZhu.Text = "主 食";
+            // 
+            // plDianJiu
+            // 
+            this.plDianJiu.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianJiu.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianJiu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianJiu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianJiu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianJiu.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plDianJiu.Location = new System.Drawing.Point(4, 45);
+            this.plDianJiu.Name = "plDianJiu";
+            this.plDianJiu.Size = new System.Drawing.Size(1287, 320);
+            this.plDianJiu.TabIndex = 4;
+            this.plDianJiu.Text = "酒 水";
+            // 
+            // plDianOther
+            // 
+            this.plDianOther.BackColor = System.Drawing.Color.SkyBlue;
+            this.plDianOther.BackgroundImage = global::zsdxsy.Properties.Resources.snap12;
+            this.plDianOther.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianOther.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.plDianOther.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.plDianOther.Location = new System.Drawing.Point(4, 45);
+            this.plDianOther.Name = "plDianOther";
+            this.plDianOther.Size = new System.Drawing.Size(1287, 320);
+            this.plDianOther.TabIndex = 5;
+            this.plDianOther.Text = "其 它";
+            // 
+            // plDianAdd
+            // 
+            this.plDianAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.plDianAdd.CanvasColor = System.Drawing.SystemColors.Control;
+            this.plDianAdd.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.plDianAdd.Controls.Add(this.btn_DianAddNew);
+            this.plDianAdd.Controls.Add(this.txtDianAddNew);
+            this.plDianAdd.DisabledBackColor = System.Drawing.Color.Empty;
+            this.plDianAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plDianAdd.Location = new System.Drawing.Point(1, 315);
+            this.plDianAdd.Name = "plDianAdd";
+            this.plDianAdd.Size = new System.Drawing.Size(1295, 83);
+            this.plDianAdd.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.plDianAdd.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.plDianAdd.Style.BackgroundImage = global::zsdxsy.Properties.Resources.Snap13;
+            this.plDianAdd.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.plDianAdd.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.plDianAdd.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.plDianAdd.Style.GradientAngle = 90;
+            this.plDianAdd.TabIndex = 4;
+            // 
+            // btn_DianAddNew
+            // 
+            this.btn_DianAddNew.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_DianAddNew.ColorTable = DevComponents.DotNetBar.eButtonColor.Office2007WithBackground;
+            this.btn_DianAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DianAddNew.Image = global::zsdxsy.Properties.Resources.save_32;
+            this.btn_DianAddNew.Location = new System.Drawing.Point(499, 22);
+            this.btn_DianAddNew.Name = "btn_DianAddNew";
+            this.btn_DianAddNew.Size = new System.Drawing.Size(149, 47);
+            this.btn_DianAddNew.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014;
+            this.btn_DianAddNew.TabIndex = 7;
+            this.btn_DianAddNew.Text = "添加";
+            this.btn_DianAddNew.Click += new System.EventHandler(this.buttonX2_Click);
+            // 
+            // txtDianAddNew
+            // 
+            this.txtDianAddNew.BackColor = System.Drawing.Color.Aqua;
+            // 
+            // 
+            // 
+            this.txtDianAddNew.Border.Class = "TextBoxBorder";
+            this.txtDianAddNew.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtDianAddNew.DisabledBackColor = System.Drawing.Color.White;
+            this.txtDianAddNew.ForeColor = System.Drawing.Color.Black;
+            this.txtDianAddNew.Location = new System.Drawing.Point(16, 22);
+            this.txtDianAddNew.Name = "txtDianAddNew";
+            this.txtDianAddNew.PreventEnterBeep = true;
+            this.txtDianAddNew.Size = new System.Drawing.Size(456, 47);
+            this.txtDianAddNew.TabIndex = 5;
+            // 
+            // tbiDian
+            // 
+            this.tbiDian.AttachedControl = this.tabControlPanel2;
+            this.tbiDian.Name = "tbiDian";
+            this.tbiDian.Text = "点 餐";
+            this.tbiDian.Click += new System.EventHandler(this.tbiDian_Click);
+            // 
             // gboxVisitor
             // 
             this.gboxVisitor.Controls.Add(this.txtVisitor);
@@ -732,7 +738,7 @@
             this.lblVisitor.Name = "lblVisitor";
             this.lblVisitor.Size = new System.Drawing.Size(120, 44);
             this.lblVisitor.TabIndex = 2;
-            this.lblVisitor.Text = "来访单位：";
+            this.lblVisitor.Text = "单位：";
             // 
             // lblReception
             // 
@@ -744,11 +750,12 @@
             this.lblReception.Name = "lblReception";
             this.lblReception.Size = new System.Drawing.Size(120, 35);
             this.lblReception.TabIndex = 1;
-            this.lblReception.Text = "接待部门：";
+            this.lblReception.Text = "部门：";
             // 
             // gboxConsumeItems
             // 
-            this.gboxConsumeItems.Controls.Add(this.lblConsumeType);
+            this.gboxConsumeItems.Controls.Add(this.panel2);
+            this.gboxConsumeItems.Controls.Add(this.panel1);
             this.gboxConsumeItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboxConsumeItems.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gboxConsumeItems.Location = new System.Drawing.Point(0, 0);
@@ -758,6 +765,25 @@
             this.gboxConsumeItems.TabStop = false;
             this.gboxConsumeItems.Text = "消费明细";
             // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 57);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(306, 668);
+            this.panel2.TabIndex = 3;
+            this.panel2.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.panel2_ControlAdded);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblConsumeType);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(306, 35);
+            this.panel1.TabIndex = 2;
+            // 
             // lblConsumeType
             // 
             this.lblConsumeType.AutoSize = true;
@@ -765,7 +791,7 @@
             // 
             // 
             this.lblConsumeType.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lblConsumeType.Location = new System.Drawing.Point(17, 31);
+            this.lblConsumeType.Location = new System.Drawing.Point(3, 3);
             this.lblConsumeType.Name = "lblConsumeType";
             this.lblConsumeType.Size = new System.Drawing.Size(90, 23);
             this.lblConsumeType.TabIndex = 1;
@@ -800,6 +826,7 @@
             this.plJieFang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.plJieFang.CanvasColor = System.Drawing.SystemColors.Control;
             this.plJieFang.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.plJieFang.Controls.Add(this.rbXiaoNei);
             this.plJieFang.Controls.Add(this.rbGuaZhang);
             this.plJieFang.Controls.Add(this.rbXianjin);
             this.plJieFang.Controls.Add(this.rbShuaKa);
@@ -820,7 +847,7 @@
             // rbGuaZhang
             // 
             this.rbGuaZhang.AutoSize = true;
-            this.rbGuaZhang.Location = new System.Drawing.Point(128, 15);
+            this.rbGuaZhang.Location = new System.Drawing.Point(6, 26);
             this.rbGuaZhang.Name = "rbGuaZhang";
             this.rbGuaZhang.Size = new System.Drawing.Size(58, 20);
             this.rbGuaZhang.TabIndex = 14;
@@ -833,7 +860,7 @@
             // 
             this.rbXianjin.AutoSize = true;
             this.rbXianjin.Checked = true;
-            this.rbXianjin.Location = new System.Drawing.Point(9, 16);
+            this.rbXianjin.Location = new System.Drawing.Point(6, 3);
             this.rbXianjin.Name = "rbXianjin";
             this.rbXianjin.Size = new System.Drawing.Size(58, 20);
             this.rbXianjin.TabIndex = 12;
@@ -846,7 +873,7 @@
             // rbShuaKa
             // 
             this.rbShuaKa.AutoSize = true;
-            this.rbShuaKa.Location = new System.Drawing.Point(70, 15);
+            this.rbShuaKa.Location = new System.Drawing.Point(70, 3);
             this.rbShuaKa.Name = "rbShuaKa";
             this.rbShuaKa.Size = new System.Drawing.Size(58, 20);
             this.rbShuaKa.TabIndex = 13;
@@ -893,6 +920,7 @@
             this.txtWeiShu.Border.Class = "TextBoxBorder";
             this.txtWeiShu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtWeiShu.DisabledBackColor = System.Drawing.Color.White;
+            this.txtWeiShu.Enabled = false;
             this.txtWeiShu.ForeColor = System.Drawing.Color.Black;
             this.txtWeiShu.Location = new System.Drawing.Point(115, 65);
             this.txtWeiShu.Name = "txtWeiShu";
@@ -901,6 +929,7 @@
             this.txtWeiShu.TabIndex = 9;
             this.txtWeiShu.Text = "0";
             this.txtWeiShu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtWeiShu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNeedPay_KeyPress);
             // 
             // labelX1
             // 
@@ -995,6 +1024,7 @@
             this.txtRealPay.Text = "0";
             this.txtRealPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRealPay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRealPay_KeyDown);
+            this.txtRealPay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNeedPay_KeyPress);
             // 
             // lblRealPay
             // 
@@ -1026,6 +1056,7 @@
             this.txtNeedPay.TabIndex = 1;
             this.txtNeedPay.Text = "0";
             this.txtNeedPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNeedPay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNeedPay_KeyPress);
             // 
             // lblNeedPay
             // 
@@ -1060,6 +1091,18 @@
             this.panelEx2.Style.GradientAngle = 90;
             this.panelEx2.TabIndex = 17;
             // 
+            // rbXiaoNei
+            // 
+            this.rbXiaoNei.AutoSize = true;
+            this.rbXiaoNei.Location = new System.Drawing.Point(70, 24);
+            this.rbXiaoNei.Name = "rbXiaoNei";
+            this.rbXiaoNei.Size = new System.Drawing.Size(90, 20);
+            this.rbXiaoNei.TabIndex = 15;
+            this.rbXiaoNei.Tag = "4";
+            this.rbXiaoNei.Text = "校内结算";
+            this.rbXiaoNei.UseVisualStyleBackColor = true;
+            this.rbXiaoNei.Click += new System.EventHandler(this.rbClearingform_Click);
+            // 
             // frmCash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1082,17 +1125,18 @@
             this.panelEx1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcDinnerType)).EndInit();
             this.tcDinnerType.ResumeLayout(false);
-            this.tabControlPanel2.ResumeLayout(false);
-            this.tcDian.ResumeLayout(false);
-            this.plDianAdd.ResumeLayout(false);
             this.tabControlPanel1.ResumeLayout(false);
             this.panelEx3.ResumeLayout(false);
             this.tabControlPanel3.ResumeLayout(false);
             this.tcWei.ResumeLayout(false);
             this.plWeiAdd.ResumeLayout(false);
+            this.tabControlPanel2.ResumeLayout(false);
+            this.tcDian.ResumeLayout(false);
+            this.plDianAdd.ResumeLayout(false);
             this.gboxVisitor.ResumeLayout(false);
             this.gboxConsumeItems.ResumeLayout(false);
-            this.gboxConsumeItems.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.gboxCash.ResumeLayout(false);
             this.plJieFang.ResumeLayout(false);
             this.plJieFang.PerformLayout();
@@ -1165,5 +1209,9 @@
         private System.Windows.Forms.RadioButton rbXianjin;
         private System.Windows.Forms.RadioButton rbShuaKa;
         private DevComponents.DotNetBar.LabelX labelX3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.RadioButton rbXiaoNei;
     }
 }
